@@ -13,6 +13,7 @@ mrproper: clean
 	rm        *~ *.aux *.log *.nav *.out *.snm *.toc *.vrb
 
 
-introduction_presentation.pdf: introduction_presentation.tex introduction_contents.tex introduction_shared.tex shared.tex
+introduction_presentation.pdf: introduction_presentation.tex introduction_contents.tex introduction_shared.tex shared.tex Makefile
+	lualatex  -shell-escape introduction_presentation.tex
 	lualatex  -shell-escape introduction_presentation.tex
 
