@@ -1,0 +1,68 @@
+\newcommand{\componentA}{0.88}
+\newcommand{\componentB}{0.96}
+\newcommand{\componentC}{0.997}
+
+\definecolor{macros}{rgb}{\componentA, \componentB, \componentC}
+\definecolor{building}{rgb}{  \componentB, \componentC, \componentA}
+\definecolor{basics}{rgb}{    \componentB, \componentA, \componentC}
+\definecolor{lists}{rgb}{     \componentA, \componentC, \componentB}
+\definecolor{errors}{rgb}{    \componentC, \componentA, \componentB}
+\definecolor{templates}{rgb}{ \componentC, \componentB, \componentA}
+\definecolor{exercises}{rgb}{ \componentA, \componentB, \componentC}
+
+\newcommand{\bgcolor}{Purple} % this should be renewed below
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% Macros
+
+% background color pre
+{
+\setbeamercolor{background canvas}{bg=macros}
+\renewcommand{\bgcolor}{macros}
+
+\section{Macros}
+\begin{frame}
+  \vspace{25mm}
+  \begin{center}
+    \Huge{Part 1:\\Macros}
+  \end{center}
+\end{frame}
+
+\subsection{Problem}
+\begin{frame}[fragile]
+  \frametitle{Problem}
+  \vspace{3mm}
+  
+\end{frame}
+
+% background color post
+}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% Exercises
+
+% background color pre
+{
+\setbeamercolor{background canvas}{bg=exercises}
+\renewcommand{\bgcolor}{exercises}
+
+\section{Exercises}
+\begin{frame}
+  \vspace{25mm}
+  \begin{center}
+    \Huge{Part 7:\\Exercises}
+  \end{center}
+\end{frame}
+
+\subsection{Exercises}
+\begin{frame}[fragile]
+  \frametitle{Exercises}
+  \vspace{3mm}
+  \begin{enumerate}
+    \descitem{First Macro:} 
+  \end{enumerate}
+\end{frame}
+
+% background color post
+}
+

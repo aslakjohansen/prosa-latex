@@ -1,5 +1,6 @@
 TARGETS = \
 	introduction_presentation.pdf \
+	intermediate_presentation.pdf \
 
 
 all: ${TARGETS}
@@ -16,4 +17,8 @@ mrproper: clean
 introduction_presentation.pdf: introduction_presentation.tex introduction_contents.tex introduction_shared.tex shared.tex Makefile
 	lualatex  -shell-escape introduction_presentation.tex
 	lualatex  -shell-escape introduction_presentation.tex
+
+intermediate_presentation.pdf: intermediate_presentation.tex intermediate_contents.tex intermediate_shared.tex shared.tex Makefile
+	lualatex  -shell-escape intermediate_presentation.tex
+	lualatex  -shell-escape intermediate_presentation.tex
 
