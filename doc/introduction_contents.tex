@@ -324,7 +324,79 @@ Programming languages:
 \begin{frame}[fragile]
   \frametitle{References}
   \vspace{3mm}
+  Numbered \textsl{things} can be labeled and referenced by their number or their page.
   
+  \vspace{5mm}
+  These include:
+  \begin{itemize}
+    \item Section at any level of depth.
+    \item Figures and tables.
+    \item Equations.
+    \item Enumerated lists.
+  \end{itemize}
+  
+  \vspace{5mm}
+  They do not include:
+  \begin{itemize}
+    \item Bibliography.
+  \end{itemize}
+\end{frame}
+
+\subsubsection{Use}
+\begin{frame}[fragile]
+  \frametitle{References \subpart{Use}}
+  \vspace{3mm}
+  A label is created using the \commandname{label} command. This will refer to the latest numerable construct.
+  
+  \vspace{5mm}
+  The number referred to by a label can be accessed using the \commandname{ref} command. Be sure to preface it with something that indicates what you are referring to (e.g., a section).
+  
+  \vspace{5mm}
+  The page number containing a label can be accessed using the \commandname{pageref} command.
+  
+  \vspace{5mm}
+  \textbf{Note:} References need two parses of the \LaTeX\ compiler to function:
+  \begin{itemize}
+    \item First pass notes down the position of the labels.
+    \item Second pass inserts these positions at the references.
+  \end{itemize}
+\end{frame}
+
+\subsubsection{Example}
+\begin{frame}[fragile]
+  \frametitle{References \subpart{Example}}
+  \begin{tikzpicture}[remember picture,overlay]
+    \newcommand{\height}[0]{32mm}
+    \newcommand{\dist}[0]{5mm}
+    
+    \tikzstyle{dedge} = [thick,->,>=stealth,draw=black]
+    
+    \node[rectangle,thick,anchor=east,draw,minimum height=\height] (code) at ([xshift=-\dist]current page.center) {
+      \begin{minipage}{6cm}
+        \begin{minted}{latex}
+Algorighm:
+\begin{enumerate}
+  \item Initialize.
+  \item \label{id} Do stuff.
+  \item Go to \ref{id}.
+\end{enumerate}
+        \end{minted}
+      \end{minipage}
+    };
+    
+    \node[rectangle,thick,anchor=west,draw,minimum height=\height] (output) at ([xshift=\dist]current page.center) {
+      \begin{minipage}{6cm}
+        Algorighm:
+        \begin{enumerate}
+          \item Initialize.
+          \item \label{id} Do stuff.
+          \item Go to step \ref{id}.
+        \end{enumerate}
+      \end{minipage}
+    };
+    
+    \draw[dedge] (code)->(output);
+  \end{tikzpicture}
 \end{frame}
 
 \subsection{Colors}
