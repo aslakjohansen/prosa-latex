@@ -10,8 +10,8 @@ clean:
 	rm    ${TARGETS}
 
 mrproper: clean
-	touch dummy~ d.aux d.log d.nav d.out d.snm d.toc d.vrb
-	rm        *~ *.aux *.log *.nav *.out *.snm *.toc *.vrb
+	touch dummy~ d.aux d.log d.nav d.out d.snm d.toc d.vrb d.minted
+	rm        *~ *.aux *.log *.nav *.out *.snm *.toc *.vrb *.minted
 
 
 introduction_presentation.pdf: introduction_presentation.tex introduction_contents.tex introduction_shared.tex shared.tex Makefile
