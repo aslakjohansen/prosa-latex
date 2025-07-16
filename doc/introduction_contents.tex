@@ -118,8 +118,43 @@
 \subsection{Formatting}
 \begin{frame}[fragile]
   \frametitle{Formatting}
-  \vspace{3mm}
+  \vspace{18mm}
   
+  \begin{center}
+    \begin{tikzpicture}
+      \newcommand{\height}[0]{36mm}
+      
+      \tikzstyle{dedge} = [thick,->,>=stealth,draw=black]
+      
+      \node[rectangle,thick,draw,minimum height=\height] (code) at (0,0) {
+        \begin{minipage}{5cm}
+          \begin{minted}{latex}
+normal \\
+\textbf{bold} \\
+\textsl{slanted} \\
+\textit{italics} \\
+\texttt{teletype} \\
+\textsl{serif free} \\
+\underline{underline}
+          \end{minted}
+        \end{minipage}
+      };
+      
+      \node[rectangle,thick,anchor=west,draw,minimum height=\height] (output) at ([xshift=1cm]code.east) {
+        \begin{minipage}{5cm}
+          normal \\
+          \textbf{bold} \\
+          \textsl{slanted} \\
+          \textit{italics} \\
+          \texttt{teletype} \\
+          \textsl{serif free} \\
+          \underline{underline}
+        \end{minipage}
+      };
+      
+      \draw[dedge] (code)->(output);
+    \end{tikzpicture}
+  \end{center}
 \end{frame}
 
 \subsection{Listings}
@@ -136,7 +171,7 @@
   
   \begin{center}
     \begin{tikzpicture}
-      \newcommand{\height}[0]{34mm}
+      \newcommand{\height}[0]{36mm}
       
       \tikzstyle{dedge} = [thick,->,>=stealth,draw=black]
       
@@ -178,7 +213,7 @@ Programming languages:
   
   \begin{center}
     \begin{tikzpicture}
-      \newcommand{\height}[0]{34mm}
+      \newcommand{\height}[0]{36mm}
       
       \tikzstyle{dedge} = [thick,->,>=stealth,draw=black]
       
