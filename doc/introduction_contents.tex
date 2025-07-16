@@ -120,15 +120,15 @@
   \frametitle{Formatting}
   \vspace{18mm}
   
-  \begin{center}
-    \begin{tikzpicture}
-      \newcommand{\height}[0]{36mm}
-      
-      \tikzstyle{dedge} = [thick,->,>=stealth,draw=black]
-      
-      \node[rectangle,thick,draw,minimum height=\height] (code) at (0,0) {
-        \begin{minipage}{5cm}
-          \begin{minted}{latex}
+  \begin{tikzpicture}[remember picture,overlay]
+    \newcommand{\height}[0]{36mm}
+    \newcommand{\dist}[0]{5mm}
+    
+    \tikzstyle{dedge} = [thick,->,>=stealth,draw=black]
+    
+    \node[rectangle,thick,anchor=east,draw,minimum height=\height] (code) at ([xshift=-\dist]current page.center) {
+      \begin{minipage}{5cm}
+        \begin{minted}{latex}
 normal \\
 \textbf{bold} \\
 \textsl{slanted} \\
@@ -136,25 +136,24 @@ normal \\
 \texttt{teletype} \\
 \textsl{serif free} \\
 \underline{underline}
-          \end{minted}
-        \end{minipage}
-      };
-      
-      \node[rectangle,thick,anchor=west,draw,minimum height=\height] (output) at ([xshift=1cm]code.east) {
-        \begin{minipage}{5cm}
-          normal \\
-          \textbf{bold} \\
-          \textsl{slanted} \\
-          \textit{italics} \\
-          \texttt{teletype} \\
-          \textsl{serif free} \\
-          \underline{underline}
-        \end{minipage}
-      };
-      
-      \draw[dedge] (code)->(output);
-    \end{tikzpicture}
-  \end{center}
+        \end{minted}
+      \end{minipage}
+    };
+    
+    \node[rectangle,thick,anchor=west,draw,minimum height=\height] (output) at ([xshift=\dist]current page.center) {
+      \begin{minipage}{5cm}
+        normal \\
+        \textbf{bold} \\
+        \textsl{slanted} \\
+        \textit{italics} \\
+        \texttt{teletype} \\
+        \textsl{serif free} \\
+        \underline{underline}
+      \end{minipage}
+    };
+    
+    \draw[dedge] (code)->(output);
+  \end{tikzpicture}
 \end{frame}
 
 \subsection{Text Size}
@@ -162,15 +161,15 @@ normal \\
   \frametitle{Text Size}
   \vspace{8mm}
   
-  \begin{center}
-    \begin{tikzpicture}
-      \newcommand{\height}[0]{50mm}
-      
-      \tikzstyle{dedge} = [thick,->,>=stealth,draw=black]
-      
-      \node[rectangle,thick,draw,minimum height=\height] (code) at (0,0) {
-        \begin{minipage}{6cm}
-          \begin{minted}[breaklines]{latex}
+  \begin{tikzpicture}[remember picture,overlay]
+    \newcommand{\height}[0]{50mm}
+    \newcommand{\dist}[0]{5mm}
+    
+    \tikzstyle{dedge} = [thick,->,>=stealth,draw=black]
+    
+    \node[rectangle,thick,anchor=east,draw,minimum height=\height] (code) at ([xshift=-\dist]current page.center) {
+      \begin{minipage}{6cm}
+        \begin{minted}[breaklines]{latex}
 \tiny{Sample text}
 \scriptsize{Sample text}
 \footnotesize{Sample text}
@@ -181,28 +180,27 @@ normal \\
 \LARGE{Sample text}
 \huge{Sample text}
 \Huge{Sample text}
-          \end{minted}
-        \end{minipage}
-      };
-      
-      \node[rectangle,thick,anchor=west,draw,minimum height=\height] (output) at ([xshift=1cm]code.east) {
-        \begin{minipage}{6cm}
-          \tiny{Sample text}
-          \scriptsize{Sample text}
-          \footnotesize{Sample text}
-          \small{Sample text}
-          \normalsize{Sample text}
-          \large{Sample text}
-          \Large{Sample text}
-          \LARGE{Sample text}
-          \huge{Sample text}
-          \Huge{Sample text}
-        \end{minipage}
-      };
-      
-      \draw[dedge] (code)->(output);
-    \end{tikzpicture}
-  \end{center}
+        \end{minted}
+      \end{minipage}
+    };
+    
+    \node[rectangle,thick,anchor=west,draw,minimum height=\height] (output) at ([xshift=\dist]current page.center) {
+      \begin{minipage}{6cm}
+        \tiny{Sample text}
+        \scriptsize{Sample text}
+        \footnotesize{Sample text}
+        \small{Sample text}
+        \normalsize{Sample text}
+        \large{Sample text}
+        \Large{Sample text}
+        \LARGE{Sample text}
+        \huge{Sample text}
+        \Huge{Sample text}
+      \end{minipage}
+    };
+    
+    \draw[dedge] (code)->(output);
+  \end{tikzpicture}
 \end{frame}
 
 \subsection{Listings}
@@ -217,15 +215,15 @@ normal \\
   \frametitle{Listings \subpart{Itemization}}
   \vspace{18mm}
   
-  \begin{center}
-    \begin{tikzpicture}
-      \newcommand{\height}[0]{36mm}
-      
-      \tikzstyle{dedge} = [thick,->,>=stealth,draw=black]
-      
-      \node[rectangle,thick,draw,minimum height=\height] (code) at (0,0) {
-        \begin{minipage}{5cm}
-          \begin{minted}{latex}
+  \begin{tikzpicture}[remember picture,overlay]
+    \newcommand{\height}[0]{36mm}
+    \newcommand{\dist}[0]{5mm}
+    
+    \tikzstyle{dedge} = [thick,->,>=stealth,draw=black]
+    
+    \node[rectangle,thick,anchor=east,draw,minimum height=\height] (code) at ([xshift=-\dist]current page.center) {
+      \begin{minipage}{5cm}
+        \begin{minted}{latex}
 Programming languages:
 \begin{itemize}
   \item Rust
@@ -233,25 +231,24 @@ Programming languages:
   \item Python
   \item \LaTeX ?
 \end{itemize}
-          \end{minted}
-        \end{minipage}
-      };
-      
-      \node[rectangle,thick,anchor=west,draw,minimum height=\height] (output) at ([xshift=1cm]code.east) {
-        \begin{minipage}{5cm}
-          Programming languages:
-          \begin{itemize}
-            \item Rust
-            \item Elixir
-            \item Python
-            \item \LaTeX ?
-          \end{itemize}
-        \end{minipage}
-      };
-      
-      \draw[dedge] (code)->(output);
-    \end{tikzpicture}
-  \end{center}
+        \end{minted}
+      \end{minipage}
+    };
+    
+    \node[rectangle,thick,anchor=west,draw,minimum height=\height] (output) at ([xshift=\dist]current page.center) {
+      \begin{minipage}{5cm}
+        Programming languages:
+        \begin{itemize}
+          \item Rust
+          \item Elixir
+          \item Python
+          \item \LaTeX ?
+        \end{itemize}
+      \end{minipage}
+    };
+    
+    \draw[dedge] (code)->(output);
+  \end{tikzpicture}
 \end{frame}
 
 \subsubsection{Enumerations}
@@ -259,15 +256,15 @@ Programming languages:
   \frametitle{Listings \subpart{Enumerations}}
   \vspace{18mm}
   
-  \begin{center}
-    \begin{tikzpicture}
-      \newcommand{\height}[0]{36mm}
-      
-      \tikzstyle{dedge} = [thick,->,>=stealth,draw=black]
-      
-      \node[rectangle,thick,draw,minimum height=\height] (code) at (0,0) {
-        \begin{minipage}{5cm}
-          \begin{minted}{latex}
+  \begin{tikzpicture}[remember picture,overlay]
+    \newcommand{\height}[0]{36mm}
+    \newcommand{\dist}[0]{5mm}
+    
+    \tikzstyle{dedge} = [thick,->,>=stealth,draw=black]
+    
+    \node[rectangle,thick,anchor=east,draw,minimum height=\height] (code) at ([xshift=-\dist]current page.center) {
+      \begin{minipage}{5cm}
+        \begin{minted}{latex}
 Programming languages:
 \begin{enumerate}
   \item Rust
@@ -275,25 +272,24 @@ Programming languages:
   \item Python
   \item \LaTeX ?
 \end{enumerate}
-          \end{minted}
-        \end{minipage}
-      };
-      
-      \node[rectangle,thick,anchor=west,draw,minimum height=\height] (output) at ([xshift=1cm]code.east) {
-        \begin{minipage}{5cm}
-          Programming languages:
-          \begin{enumerate}
-            \item Rust
-            \item Elixir
-            \item Python
-            \item \LaTeX ?
-          \end{enumerate}
-        \end{minipage}
-      };
-      
-      \draw[dedge] (code)->(output);
-    \end{tikzpicture}
-  \end{center}
+        \end{minted}
+      \end{minipage}
+    };
+    
+    \node[rectangle,thick,anchor=west,draw,minimum height=\height] (output) at ([xshift=\dist]current page.center) {
+      \begin{minipage}{5cm}
+        Programming languages:
+        \begin{enumerate}
+          \item Rust
+          \item Elixir
+          \item Python
+          \item \LaTeX ?
+        \end{enumerate}
+      \end{minipage}
+    };
+    
+    \draw[dedge] (code)->(output);
+  \end{tikzpicture}
 \end{frame}
 
 \subsection{References}
