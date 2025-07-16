@@ -174,8 +174,43 @@ Programming languages:
 \subsubsection{Enumerations}
 \begin{frame}[fragile]
   \frametitle{Listings \subpart{Enumerations}}
-  \vspace{3mm}
+  \vspace{18mm}
   
+  \begin{center}
+    \begin{tikzpicture}
+      \newcommand{\height}[0]{34mm}
+      
+      \tikzstyle{dedge} = [thick,->,>=stealth,draw=black]
+      
+      \node[rectangle,thick,draw,minimum height=\height] (code) at (0,0) {
+        \begin{minipage}{5cm}
+          \begin{minted}{latex}
+Programming languages:
+\begin{enumerate}
+  \item Rust
+  \item Elixir
+  \item Python
+  \item \LaTeX ?
+\end{enumerate}
+          \end{minted}
+        \end{minipage}
+      };
+      
+      \node[rectangle,thick,anchor=west,draw,minimum height=\height] (output) at ([xshift=1cm]code.east) {
+        \begin{minipage}{5cm}
+          Programming languages:
+          \begin{enumerate}
+            \item Rust
+            \item Elixir
+            \item Python
+            \item \LaTeX ?
+          \end{enumerate}
+        \end{minipage}
+      };
+      
+      \draw[dedge] (code)->(output);
+    \end{tikzpicture}
+  \end{center}
 \end{frame}
 
 \subsection{References}
