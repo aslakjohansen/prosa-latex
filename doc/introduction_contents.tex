@@ -132,8 +132,43 @@
 \subsubsection{Itemization}
 \begin{frame}[fragile]
   \frametitle{Listings \subpart{Itemization}}
-  \vspace{3mm}
+  \vspace{18mm}
   
+  \begin{center}
+    \begin{tikzpicture}
+      \newcommand{\height}[0]{34mm}
+      
+      \tikzstyle{dedge} = [thick,->,>=stealth,draw=black]
+      
+      \node[rectangle,thick,draw,minimum height=\height] (code) at (0,0) {
+        \begin{minipage}{5cm}
+          \begin{minted}{latex}
+Programming languages:
+\begin{itemize}
+  \item Rust
+  \item Elixir
+  \item Python
+  \item \LaTeX ?
+\end{itemize}
+          \end{minted}
+        \end{minipage}
+      };
+      
+      \node[rectangle,thick,anchor=west,draw,minimum height=\height] (output) at ([xshift=1cm]code.east) {
+        \begin{minipage}{5cm}
+          Programming languages:
+          \begin{itemize}
+            \item Rust
+            \item Elixir
+            \item Python
+            \item \LaTeX ?
+          \end{itemize}
+        \end{minipage}
+      };
+      
+      \draw[dedge] (code)->(output);
+    \end{tikzpicture}
+  \end{center}
 \end{frame}
 
 \subsubsection{Enumerations}
