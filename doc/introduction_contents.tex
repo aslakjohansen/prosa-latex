@@ -99,8 +99,12 @@
 \subsection{Overleaf}
 \begin{frame}[fragile]
   \frametitle{Overleaf}
-  \vspace{3mm}
-  
+  \begin{tikzpicture}[remember picture,overlay]
+    \node[anchor=south] () at ([yshift=-1.2cm]current page.south) {
+      \only<1>{\includeBitmap{overleafmain.png}{14cm}}
+      \only<2>{\includeBitmap{overleafdemo.png}{14cm}}
+    };
+  \end{tikzpicture}
 \end{frame}
 
 \subsection{Make}
