@@ -677,6 +677,25 @@ detaining.}.
   \end{tikzpicture}
 \end{frame}
 
+\subsection{Margin Paragraphs}
+\begin{frame}[fragile]
+  \frametitle{Margin Paragraphs}
+  \vspace{3mm}
+  Margin paragraphs works in much the same way as footnotes.
+  
+  \vspace{5mm}
+  However, they are (i) not numbered, and (ii) appear in the outer margin.
+  
+  \vspace{5mm}
+  Instead of the \commandname{footnote} command you use \commandname{marginpar} (and make sure that the \packagename{marginnote} package is included).
+  
+  \begin{tikzpicture}[remember picture,overlay]
+    \node[anchor=south] () at ([yshift=-42mm]current page.south) {
+      \includeBitmap{marginpar.png}{14cm}
+    };
+  \end{tikzpicture}
+\end{frame}
+
 \subsection{Code Inclusion}
 \begin{frame}[fragile]
   \frametitle{Code Inclusion}
