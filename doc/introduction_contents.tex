@@ -394,7 +394,56 @@ normal \\
 \begin{frame}[fragile]
   \frametitle{Listings}
   \vspace{3mm}
+  General considerations when deciding between ordered or unordered lists:
   
+  \begin{tikzpicture}[remember picture,overlay]
+    \newcommand{\dist}[0]{10mm}
+    \newcommand{\decision}[1]{\textsl{#1}}
+    
+    \tikzstyle{choice} = [
+      diamond,
+      thick,
+      draw=black,
+      align=center,
+      inner sep=0pt,
+    ]
+    \tikzstyle{outcome} = [
+      rectangle,
+      thick,
+      draw=black,
+      anchor=north,
+      align=center,
+      minimum width=4.85cm,
+      minimum height=8mm,
+    ]
+    
+    \tikzstyle{dedge} = [thick,->,>=stealth,draw=black]
+    
+    \node[matrix,column sep=\dist,row sep=\dist] () at ([yshift=-1cm]current page.center) {
+      &
+      &
+      &
+      \node[outcome,anchor=west] (enumerate) {use \commandname{enumerate} environment};
+      \\
+      \node[] (origin) {};
+      &
+      \node[choice,anchor=east] (choiceA) {mentioned\\the number\\of items?};
+      &
+      \node[choice] (choiceB) {need to\\refer to a\\specific\\item?};
+      &
+      \node[outcome,anchor=west] (itemize) {use \commandname{itemize} environment};
+      \\
+    };
+    
+    \node[anchor=east] () at ([yshift=\dist/2]choiceA.north) {\decision{yes}};
+    \node[anchor=east] () at ([yshift=\dist/2]choiceB.north) {\decision{yes}};
+    
+    \draw[dedge] (origin)--(choiceA);
+    \draw[dedge] (choiceA)--(choiceB) node[midway,sloped,below] {\decision{no}};
+    \draw[dedge] (choiceB)--(itemize) node[midway,sloped,below] {\decision{no}};
+    \draw[dedge] (choiceA)|-([yshift= 2mm]enumerate.west);
+    \draw[dedge] (choiceB)|-([yshift=-2mm]enumerate.west);
+  \end{tikzpicture}
 \end{frame}
 
 \subsubsection{Itemization}
