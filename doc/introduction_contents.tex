@@ -648,11 +648,33 @@ Algorighm:
   
 \end{frame}
 
-\subsection{Notes}
+\subsection{Footnotes}
 \begin{frame}[fragile]
-  \frametitle{Notes}
-  \vspace{3mm}
-  
+  \frametitle{Footnotes}
+  \begin{tikzpicture}[remember picture,overlay]
+    \newcommand{\height}[0]{24mm}
+    \newcommand{\dist}[0]{5mm}
+    
+    \tikzstyle{dedge} = [thick,->,>=stealth,draw=black]
+    
+    \node[rectangle,thick,anchor=east,draw,minimum height=\height] (code) at ([xshift=-\dist]current page.center) {
+      \begin{minipage}{6cm}
+        \begin{minted}{latex}
+Text\footnote{Short
+detaining.}.
+        \end{minted}
+      \end{minipage}
+    };
+    
+    \node[rectangle,thick,anchor=west,draw,minimum height=\height] (output) at ([xshift=\dist]current page.center) {
+      \begin{minipage}{6cm}
+        Text\footnote{Short
+        detaining.}.
+      \end{minipage}
+    };
+    
+    \draw[dedge] (code)->(output);
+  \end{tikzpicture}
 \end{frame}
 
 \subsection{Code Inclusion}
