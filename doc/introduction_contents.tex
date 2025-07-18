@@ -86,8 +86,10 @@
   \begin{itemize}
     \descitem{pdflatex} The old engine that is fast but lacks native unicode and modern OpenType font support. These are not serious restrictions.
     \descitem{xelatex} A more modern version of \textdesc{pdflatex} that fixes its downsides. But on the flipside it is slower and has not been actively developed since 2017.
-    \descitem{lualatex} The most modern engine is scriptable through Lua. It also fixes the issues with \textdesc{pdflatex} and is under active development. It is even slower though. This is the way to go for new projects.
+    \descitem{lualatex} The most modern engine is scriptable through Lua. It also fixes the issues with \textdesc{pdflatex} and is under active development. It is even slower though.
       \begin{itemize}
+        \item This is the way to go for new projects.
+        \item From this point on, we will assume \textdesc{lualatex}.
         \item Don't worry too much about the lack of speed. It is rare that it becomes an annoyance.
         \item While you can script it in Lua, the interactions with the \LaTeX\ macro system are complex. Personally, I have decided against it.
       \end{itemize}
