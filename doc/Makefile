@@ -4,6 +4,7 @@ TARGETS = \
 
 INTERMEDIATE_DEPS = \
 	../src/table_heatmap/code.txt \
+	../src/table_heatmap/code.tex \
 
 
 all: ${TARGETS}
@@ -19,6 +20,9 @@ mrproper: clean
 
 ../src/table_heatmap/code.txt: ../src/table_heatmap/code.py
 	../src/table_heatmap/code.py > ../src/table_heatmap/code.txt
+
+../src/table_heatmap/code.tex: ../src/table_heatmap/process.py ../src/table_heatmap/code.txt
+	../src/table_heatmap/process.py ../src/table_heatmap/code.txt ../src/table_heatmap/code.tex
 
 introduction_presentation.pdf: introduction_presentation.tex introduction_contents.tex introduction_shared.tex shared.tex Makefile
 	lualatex  -shell-escape introduction_presentation.tex
