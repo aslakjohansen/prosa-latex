@@ -45,7 +45,7 @@ for algo in algos:
   line = "  %s & %s" % (yheading if algo==algos[0] else "", algo)
   for n in sorted(ns):
     value = data[algo][n]
-    line += " &\\cellcolor{green!%i!red}%.2f" % (valuemapper(value), value)
+    line += " &\\cellcolor{red!%i!green}%.2f" % (valuemapper(value), value)
   lines.append(line+" \\\\")
 lines.append("\\end{tabular}")
 
