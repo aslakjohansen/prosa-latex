@@ -237,7 +237,9 @@
 \begin{frame}[fragile]
   \frametitle{Nametag Generation \subpart{Result}}
   \vspace{3mm}
-  
+  \begin{tikzpicture}[remember picture,overlay]
+    \node[rectangle,anchor=center,draw,fill=white] () at ([yshift=-4mm]current page.center) {\includegraphics[scale=0.25]{figs/nametag.pdf}};
+  \end{tikzpicture}
 \end{frame}
 
 % background color post
