@@ -96,6 +96,20 @@ The configuration is pulled from the \filename{conf.yaml} file.
   
   \vspace{5mm}
   \textbf{Definition:}
+  \begin{minted}[breaklines]{latex}
+\newenvironment{inspiration}[2][0.9]
+{
+  \begin{center}
+  \newcommand{\saveme}{#2}
+  \begin{minipagewithmarginpars}{#1\textwidth}
+}
+{
+  
+  \raggedleft{--- \textsl{\saveme}}
+  \end{minipagewithmarginpars}
+  \end{center}
+}
+  \end{minted}
   
   \vspace{5mm}
   \textbf{Use:}
