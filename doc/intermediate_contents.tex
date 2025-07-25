@@ -126,6 +126,23 @@ The configuration is pulled from the \filename{conf.yaml} file.
   
   \vspace{5mm}
   \textbf{Definition:}
+  \begin{minted}[breaklines]{latex}
+\newenvironment{syntaxsegment}[1][0.9]
+{
+  \begin{center}
+    \begin{tabular}{|p{#1\textwidth}|}
+      \hline
+      \cellcolor[gray]{0.9}
+      \textbf{Syntax} \\
+      \hline
+      \cellcolor[gray]{0.95}
+}{
+      \\
+      \hline
+    \end{tabular}
+  \end{center}
+}
+  \end{minted}
   
   \vspace{5mm}
   \textbf{Use:}
