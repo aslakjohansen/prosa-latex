@@ -195,8 +195,13 @@
 \begin{frame}[fragile]
   \frametitle{Commandline}
   \vspace{3mm}
+  Running the \LaTeX\ interpreter is done using the following command:
   \begin{minted}[breaklines]{shell-session}
-lualatex -shell-escape intermediate_presentation.tex
+lualatex document.tex
+  \end{minted}
+  or, if you are using \packagename{minted} for source code highlighting:
+  \begin{minted}[breaklines]{shell-session}
+lualatex -shell-escape document.tex
   \end{minted}
   
   \vspace{5mm}
