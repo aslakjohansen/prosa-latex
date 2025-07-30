@@ -197,7 +197,14 @@ The configuration is pulled from the \filename{conf.yaml} file.
 \begin{frame}[fragile]
   \frametitle{Nodes}
   \vspace{3mm}
-  
+  \begin{center}
+    \begin{tikzpicture}[]
+      \newcommand{\size}[0]{ 6cm }
+      \tikzstyle{dedge} = [thick,->,>=stealth,draw=black]
+      \draw[dedge] (0,0) -- (\size,0) node[midway,below]  {\textsl{\textcolor{purple}{x}}};
+      \draw[dedge] (0,0) -- (0,\size) node[midway,left] {\textsl{\textcolor{purple}{y}}};
+    \end{tikzpicture}
+  \end{center}
 \end{frame}
 
 \subsection{Nodes}
