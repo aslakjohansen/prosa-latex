@@ -232,11 +232,11 @@ The configuration is pulled from the \filename{conf.yaml} file.
       thick,
     ]
     
-    \coordinate (squarecoord) at ([xshift=-4cm] current page.center);
-    \coordinate (circlecoord) at ([xshift=4cm] current page.center);
+    \coordinate (squarecoord) at ([xshift=-3.8cm] current page.center);
+    \coordinate (circlecoord) at ([xshift=3.8cm] current page.center);
     
-    \node[rectangle,draw,minimum height=3cm,minimum width=3cm] (square) at (squarecoord) {};
-    \node[circle,draw,minimum height=3cm,minimum width=3cm] (circle) at (circlecoord) {};
+    \node[rectangle,draw,minimum height=2.6cm,minimum width=2.6cm] (square) at (squarecoord) {};
+    \node[circle,draw,minimum height=2.6cm,minimum width=2.6cm] (circle) at (circlecoord) {};
     
     \only<2>{
       \node[point] (sc) at (square.center) {};
