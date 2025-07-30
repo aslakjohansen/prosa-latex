@@ -214,6 +214,79 @@ The configuration is pulled from the \filename{conf.yaml} file.
   
 \end{frame}
 
+\subsubsection{Anchor Points}
+\begin{frame}[fragile]
+  \frametitle{Nodes \subpart{Anchor Points}}
+  \vspace{3mm}
+  \begin{tikzpicture}[remember picture, overlay]
+    \newcommand{\pointname}[1]{ \texttt{#1} }
+    \tikzstyle{dedge} = [thick,->,>=stealth,draw=black]
+    
+    \tikzstyle{point}=[
+      circle,
+      draw=purple,
+      fill=purple!5,
+      anchor=center,
+      minimum size=1.2mm,
+      inner sep=0pt,
+      thick,
+    ]
+    
+    \coordinate (squarecoord) at ([xshift=-4cm] current page.center);
+    \coordinate (circlecoord) at ([xshift=4cm] current page.center);
+    
+    \node[rectangle,draw,minimum height=3cm,minimum width=3cm] (square) at (squarecoord) {};
+    \node[circle,draw,minimum height=3cm,minimum width=3cm] (circle) at (circlecoord) {};
+    
+    \only<2>{
+      \node[point] (sc) at (square.center) {};
+      \node[point] (cc) at (circle.center) {};
+      \node[anchor=north] () at (sc.south) {\pointname{center}};
+      \node[anchor=north] () at (cc.south) {\pointname{center}};
+      
+      \node[point] (sn) at (square.north) {};
+      \node[point] (cn) at (circle.north) {};
+      \node[anchor=south] () at (sn.north) {\pointname{north}};
+      \node[anchor=south] () at (cn.north) {\pointname{north}};
+      
+      \node[point] (ss) at (square.south) {};
+      \node[point] (cs) at (circle.south) {};
+      \node[anchor=north] () at (ss.south) {\pointname{south}};
+      \node[anchor=north] () at (cs.south) {\pointname{south}};
+      
+      \node[point] (se) at (square.east) {};
+      \node[point] (ce) at (circle.east) {};
+      \node[anchor=west] () at (se.east) {\pointname{east}};
+      \node[anchor=west] () at (ce.east) {\pointname{east}};
+      
+      \node[point] (sw) at (square.west) {};
+      \node[point] (cw) at (circle.west) {};
+      \node[anchor=east] () at (sw.west) {\pointname{west}};
+      \node[anchor=east] () at (cw.west) {\pointname{west}};
+      
+      \node[point] (snw) at (square.north west) {};
+      \node[point] (cnw) at (circle.north west) {};
+      \node[anchor=south east] () at (snw.north west) {\pointname{north west}};
+      \node[anchor=south east] () at (cnw.north west) {\pointname{north west}};
+      
+      \node[point] (sne) at (square.north east) {};
+      \node[point] (cne) at (circle.north east) {};
+      \node[anchor=south west] () at (sne.north east) {\pointname{north east}};
+      \node[anchor=south west] () at (cne.north east) {\pointname{north east}};
+      
+      \node[point] (ssw) at (square.south west) {};
+      \node[point] (csw) at (circle.south west) {};
+      \node[anchor=north east] () at (ssw.south west) {\pointname{south west}};
+      \node[anchor=north east] () at (csw.south west) {\pointname{south west}};
+      
+      \node[point] (sse) at (square.south east) {};
+      \node[point] (cse) at (circle.south east) {};
+      \node[anchor=north west] () at (sse.south east) {\pointname{south east}};
+      \node[anchor=north west] () at (cse.south east) {\pointname{south east}};
+    }
+  \end{tikzpicture}
+\end{frame}
+
 \subsection{Paths}
 \begin{frame}[fragile]
   \frametitle{Paths}
