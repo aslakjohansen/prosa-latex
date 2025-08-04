@@ -460,8 +460,28 @@ The configuration is pulled from the \filename{conf.yaml} file.
 \subsection{Parameterized Documents}
 \begin{frame}[fragile]
   \frametitle{Parameterized Documents}
-  \vspace{3mm}
+  \vspace{2mm}
+  You need to produce a large number ($n$) of documents that has a lot in common.
   
+  \vspace{5mm}
+  They each have a different title.
+  
+  \vspace{5mm}
+  You already have one file with document-specific contents. So, $n$ files here.
+  
+  \vspace{5mm}
+  Some contents is the same. So, $1$ file here.
+  
+  \vspace{5mm}
+  The \textsl{naive} solution is to then have $n$ more files, essentially doing:
+  \begin{enumerate}
+    \item Set title.
+    \item Include common file.
+    \item Include specific file.
+  \end{enumerate}
+  
+  \vspace{3mm}
+  This, however, can be done using $1$ file and a build system.
 \end{frame}
 
 \subsubsection{Solution}
