@@ -526,13 +526,13 @@ The configuration is pulled from the \filename{conf.yaml} file.
   \frametitle{Graph Layout \subpart{Nodes in GraphML}}
   \vspace{-2mm}
   
-  \begin{minted}[fontsize=\scriptsize,breaklines]{xml}
-<node id="n3">
+  \begin{minted}[fontsize=\scriptsize,breaklines,escapeinside=||]{xml}
+|\tikzmark{node}|<node id="n3">
   <data key="d5"/>
   <data key="d6">
     <y:ShapeNode>
-      <y:Geometry height="30.0" width="30.0" x="104.0" y="210.0"/>
-      <y:Fill color="#FF00FF" transparent="false"/>
+      |\tikzmark{geometry}|<y:Geometry height="30.0" width="30.0" x="104.0" y="210.0"/>
+      |\tikzmark{fill}|<y:Fill color="#FF00FF" transparent="false"/>
       <y:BorderStyle color="#000000" raised="false" type="line" width="1.0"/>
       <y:NodeLabel alignment="center" autoSizePolicy="content" fontFamily="Dialog"
           fontSize="12" fontStyle="plain" hasBackgroundColor="false" hasLineColor="false"
@@ -547,11 +547,24 @@ The configuration is pulled from the \filename{conf.yaml} file.
               nodeRatioY="0.0" offsetX="0.0" offsetY="0.0" upX="0.0" upY="-1.0"/>
         </y:ModelParameter>
       </y:NodeLabel>
-      <y:Shape type="hexagon"/>
+      |\tikzmark{shape}|<y:Shape type="hexagon"/>
     </y:ShapeNode>
   </data>
 </node>
   \end{minted}
+  \begin{tikzpicture}[remember picture]
+    \pause
+    \node[overlay, rectangle, very thick, draw=blue, minimum height=3.2mm, minimum width=23mm, anchor=north west] (rect) at ([xshift=-1mm,yshift=2.5mm] pic cs:node) {};
+    
+    \pause
+    \node[overlay, rectangle, very thick, draw=blue, minimum height=3.2mm, minimum width=91mm, anchor=north west] (rect) at ([xshift=-1mm,yshift=2.5mm] pic cs:geometry) {};
+    
+    \pause
+    \node[overlay, rectangle, very thick, draw=blue, minimum height=3.2mm, minimum width=69mm, anchor=north west] (rect) at ([xshift=-1mm,yshift=2.5mm] pic cs:fill) {};
+    
+    \pause
+    \node[overlay, rectangle, very thick, draw=blue, minimum height=3.2mm, minimum width=39mm, anchor=north west] (rect) at ([xshift=-1mm,yshift=2.5mm] pic cs:shape) {};
+  \end{tikzpicture}
 \end{frame}
 
 \subsubsection{Edges in GraphML}
