@@ -517,8 +517,10 @@ The configuration is pulled from the \filename{conf.yaml} file.
 \subsubsection{yEd}
 \begin{frame}[fragile]
   \frametitle{Graph Layout \subpart{yEd}}
-  \vspace{3mm}
   
+  \begin{tikzpicture}[remember picture, overlay]
+    \node[anchor=center] () at ([yshift=-8mm] current page.center) {\includeBitmap{yEd.png}{16cm}};
+  \end{tikzpicture}
 \end{frame}
 
 \subsubsection{Nodes in GraphML}
