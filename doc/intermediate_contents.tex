@@ -559,19 +559,26 @@ The configuration is pulled from the \filename{conf.yaml} file.
   \frametitle{Graph Layout \subpart{Edges in GraphML}}
   \vspace{12mm}
   
-  \begin{minted}[breaklines]{xml}
-<edge id="e2" source="n2" target="n3">
+  \begin{minted}[breaklines,escapeinside=||]{xml}
+|\tikzmark{edge}|<edge id="e2" source="n2" target="n3">
   <data key="d9"/>
   <data key="d10">
     <y:PolyLineEdge>
       <y:Path sx="0.0" sy="0.0" tx="0.0" ty="0.0"/>
       <y:LineStyle color="#000000" type="line" width="1.0"/>
-      <y:Arrows source="none" target="none"/>
+      |\tikzmark{arrows}|<y:Arrows source="none" target="none"/>
       <y:BendStyle smoothed="false"/>
     </y:PolyLineEdge>
   </data>
 </edge>
   \end{minted}
+  \begin{tikzpicture}[remember picture]
+    \pause
+    \node[overlay, rectangle, very thick, draw=blue, minimum height=6mm, minimum width=78.5mm, anchor=north west] (rect) at ([xshift=-1mm,yshift=4mm] pic cs:edge) {};
+    
+    \pause
+    \node[overlay, rectangle, very thick, draw=blue, minimum height=6mm, minimum width=80.75mm, anchor=north west] (rect) at ([xshift=-1mm,yshift=4mm] pic cs:arrows) {};
+  \end{tikzpicture}
 \end{frame}
 
 \subsubsection{Processing Code}
