@@ -600,7 +600,24 @@ The configuration is pulled from the \filename{conf.yaml} file.
 \begin{frame}[fragile]
   \frametitle{Graph Layout \subpart{Processing Code}}
   \vspace{3mm}
-  
+  \begin{enumerate}
+    \item Define regular expressions for matching relevant lines and extracting needed values.
+    \item Parse GraphML file using the regular expressions.
+          \\
+          \textbf{Note:} This is obviously \underline{so} the wrong approach \ldots but it works.
+    \item \label{enum:layout:scaler} Find min and max positions on both the x and y axes, and use these to define scaling functions.
+    \item Make a string containing \TikZ code
+      \begin{enumerate}
+        \item Add definitions of styles.
+        \item Add code for each node.
+          \begin{itemize}
+            \item Apply scalers from step \ref{enum:layout:scaler}.
+            \item Reuse id's from GraphML file.
+          \end{itemize}
+        \item Add code for each edge.
+      \end{enumerate}
+    \item Save that string to a file.
+  \end{enumerate}
 \end{frame}
 
 \subsubsection{Result}
