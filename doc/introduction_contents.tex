@@ -941,7 +941,47 @@ $c = \sqrt{a^2+b^2}$.
 \begin{frame}[fragile]
   \frametitle{URLs}
   \vspace{3mm}
-  
+  \begin{tikzpicture}[remember picture,overlay]
+    \newcommand{\height}[0]{36mm}
+    \newcommand{\dist}[0]{5mm}
+    
+    \tikzstyle{dedge} = [thick,->,>=stealth,draw=black]
+    
+    \node[rectangle,thick,anchor=east,draw,minimum height=\height] (code) at ([xshift=-\dist]current page.center) {
+      \begin{minipage}{6cm}
+        \begin{minted}[fontsize=\scriptsize]{latex}
+Search at
+\textcolor{blue}{
+  \texttt{https://search.brave.com}
+}
+
+Search at
+\url{https://search.brave.com}
+
+Search at
+\href{https://search.brave.com}{Brave}
+        \end{minted}
+      \end{minipage}
+    };
+    
+    \node[rectangle,thick,anchor=west,draw,minimum height=\height] (output) at ([xshift=\dist]current page.center) {
+      \scriptsize
+      \begin{minipage}{6cm}
+Search at
+\textcolor{blue}{https://search.brave.com}
+
+\vspace{3mm}
+Search at
+\url{https://search.brave.com}
+
+\vspace{3mm}
+Search at
+\href{https://search.brave.com}{Brave}
+      \end{minipage}
+    };
+    
+    \draw[dedge] (code)->(output);
+  \end{tikzpicture}
 \end{frame}
 
 \subsection{Nooks and Crannies}
