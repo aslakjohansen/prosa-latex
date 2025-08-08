@@ -329,7 +329,19 @@ lualatex -shell-escape document.tex
 \begin{frame}[fragile]
   \frametitle{Packages}
   \vspace{3mm}
+  A package is a \LaTeX\ term for a file (or collection of files) that contain a set of macros (commands and environments) for dealing with a specialized topic.
   
+  \vspace{5mm}
+  The \packagename{dirtytalk} package gives access to the \commandname{say} command. This command takes one parameter and wraps it in the proper quotation marks.
+  
+  \vspace{5mm}
+  It can be included by putting the following in the preample:
+  \begin{minted}[breaklines]{latex}
+\usepackage{dirtytalk}
+  \end{minted}
+  
+  \vspace{5mm}
+  This is a very simple package. Others -- like \TikZ\ and \packagename{minted} -- are much more extensive.
 \end{frame}
 
 \subsection{Language and Hyphenation}
