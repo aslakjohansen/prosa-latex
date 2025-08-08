@@ -355,7 +355,22 @@ lualatex -shell-escape document.tex
 \begin{frame}[fragile]
   \frametitle{Overall Structure \subpart{File Inclusion}}
   \vspace{3mm}
+  As programmers, we usually have a good understanding of the problems of having all of our code in a single file.
   
+  \vspace{5mm}
+  In \LaTeX\ one can, in essence, include the contents of an other file like so:
+  \begin{minted}[breaklines]{latex}
+\input{filename.tex}
+  \end{minted}
+  
+  \vspace{5mm}
+  This is often used for top-level sections or figures.
+  
+  \vspace{5mm}
+  As programmers, we rarely have a good understanding of the problems of having all of our code split across an ocean of files.
+  
+  \vspace{5mm}
+  So, use with care.
 \end{frame}
 
 \subsubsection{Sectioning}
