@@ -294,22 +294,30 @@ lualatex -shell-escape document.tex
     \newcommand{\height}[0]{14mm}
     \newcommand{\width}[0]{3mm}
     
+    \tikzstyle{segment} = [
+      rectangle,
+      anchor=north west,
+      fill=purple,
+      minimum height=\height,
+      minimum width=\width,
+    ]
+    
     \coordinate (top) at ([yshift=34mm]current page.center);
     
     \node[anchor=north] (docclass) at (top) {\mintinline{latex}{\documentclass[a4paper, oneside]{memoir}}};
     
-    \node[rectangle,anchor=north west,fill=purple,minimum height=\height,minimum width=\width] (pa) at (docclass.south west) {};
+    \node[segment] (pa) at (docclass.south west) {};
     \node[anchor=west] () at (pa.east) {Preample};
     
     \node[anchor=north west] (begin) at (pa.south west) {\mintinline{latex}{\begin{document}}};
     
-    \node[rectangle,anchor=north west,fill=purple,minimum height=\height,minimum width=\width] (fm) at (begin.south west) {};
+    \node[segment] (fm) at (begin.south west) {};
     \node[anchor=west] () at (fm.east) {Front Matter};
     
-    \node[rectangle,anchor=north west,fill=purple,minimum height=\height,minimum width=\width] (main) at (fm.south west) {};
+    \node[segment] (main) at (fm.south west) {};
     \node[anchor=west] () at (main.east) {Main Matter};
     
-    \node[rectangle,anchor=north west,fill=purple,minimum height=\height,minimum width=\width] (bm) at (main.south west) {};
+    \node[segment] (bm) at (main.south west) {};
     \node[anchor=west] () at (bm.east) {Back Matter};
     
     \node[anchor=north west] (end) at (bm.south west) {\mintinline{latex}{\end{document}}};
