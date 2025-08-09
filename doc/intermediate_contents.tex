@@ -420,7 +420,18 @@ The configuration is pulled from the \filename{conf.yaml} file.
 \begin{frame}[fragile]
   \frametitle{Exercise Difficulty \subpart{Solution}}
   \vspace{3mm}
+  First, introduce directory structure:
+  \begin{itemize}
+    \item Chapter name at the top level with some sort of machine readable index file (e.g., YAML)
+    \item Exercise name at the next level
+    \item At the last level we have a \filename{question.tex}, a \filename{answer.tex} and a \filename{meta.yaml} (with the difficulties).
+  \end{itemize}
   
+  \vspace{5mm}
+  Next, we have a script that processes that part of the filesystem and produces an exercise file per chapter, that is then included in the main document.
+  
+  \vspace{5mm}
+  Now that we know \TikZ, and we have everything available to our script, we might as well make it pretty \ldots
 \end{frame}
 
 \subsubsection{Result}
