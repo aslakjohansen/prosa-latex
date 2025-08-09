@@ -375,11 +375,32 @@ lualatex -shell-escape document.tex
   So, use with care.
 \end{frame}
 
-\subsubsection{Sectioning}
+\subsubsection{Structure of Contents}
 \begin{frame}[fragile]
-  \frametitle{Overall Structure \subpart{Sectioning}}
+  \frametitle{Overall Structure \subpart{Structure of Contentss}}
   \vspace{3mm}
+  The \textsl{main matter} is split into a section tree, with lists of paragraphs as leaves.
   
+  \vspace{5mm}
+  What is available to you depends on your \textsl{style}.
+  
+  \vspace{5mm}
+  \begin{minted}[fontsize=\footnotesize,breaklines]{latex}
+\part{Reasoning}
+\section{Introduction}
+
+paragraph 1
+
+paragraph 2
+
+\subsection{Problem}
+\subsection{Approach}
+\section{Analysis}
+\subsection{Themes}
+\subsubsection{Build Systems}
+\subsubsection{Scripting}
+\subsection{Sub-Conclusion}
+  \end{minted}
 \end{frame}
 
 \subsection{Spacing}
