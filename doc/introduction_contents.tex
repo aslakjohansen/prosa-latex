@@ -965,6 +965,64 @@ detaining.}.
   It also support various forms of highlights and line numbering.
 \end{frame}
 
+\subsubsection{Inline}
+\begin{frame}[fragile]
+  \frametitle{Code Inclusion \subpart{Inline}}
+  \begin{tikzpicture}[remember picture,overlay]
+    \newcommand{\height}[0]{24mm}
+    \newcommand{\dist}[0]{5mm}
+    
+    \tikzstyle{dedge} = [thick,->,>=stealth,draw=black]
+    
+    \node[rectangle,thick,anchor=east,draw,minimum height=\height] (code) at ([xshift=-\dist]current page.center) {
+      \begin{minipage}{6cm}
+        \begin{minted}{latex}
+The formatting of a function
+call in rust looks like this:
+\mintinline{rust}{fun(1+1)}.
+        \end{minted}
+      \end{minipage}
+    };
+    
+    \node[rectangle,thick,anchor=west,draw,minimum height=\height] (output) at ([xshift=\dist]current page.center) {
+      \begin{minipage}{6cm}
+The formatting of a function
+call in rust looks like this:
+\mintinline{rust}{fun(1+1)}.
+      \end{minipage}
+    };
+    
+    \draw[dedge] (code)->(output);
+  \end{tikzpicture}
+\end{frame}
+
+\subsubsection{Environment}
+\begin{frame}[fragile]
+  \frametitle{Code Inclusion \subpart{Environment}}
+  \begin{tikzpicture}[remember picture,overlay]
+    \newcommand{\height}[0]{24mm}
+    \newcommand{\dist}[0]{5mm}
+    
+    \tikzstyle{dedge} = [thick,->,>=stealth,draw=black]
+    
+    \node[rectangle,thick,anchor=east,draw,minimum height=\height] (code) at ([xshift=-\dist]current page.center) {
+      \begin{minipage}{6cm}
+        \begin{minted}{latex}
+
+        \end{minted}
+      \end{minipage}
+    };
+    
+    \node[rectangle,thick,anchor=west,draw,minimum height=\height] (output) at ([xshift=\dist]current page.center) {
+      \begin{minipage}{6cm}
+
+      \end{minipage}
+    };
+    
+    \draw[dedge] (code)->(output);
+  \end{tikzpicture}
+\end{frame}
+
 \subsection{Mathematics}
 \begin{frame}[fragile]
   \frametitle{Mathematics}
