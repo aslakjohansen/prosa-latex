@@ -509,7 +509,34 @@ The configuration is pulled from the \filename{conf.yaml} file.
 \begin{frame}[fragile]
   \frametitle{Parameterized Documents \subpart{Solution}}
   \vspace{3mm}
+  The \LaTeX\ engine command is usually give a filename as parameter:
   
+  \vspace{1mm}
+  \begin{minted}[breaklines]{shell}
+lualatex -shell-escape intro_presentation.tex
+  \end{minted}
+  
+  \vspace{5mm}
+  It is the contents of this file that it tries to produce a PDF from.
+  
+  \pause
+  \vspace{5mm}
+  There is, however, another way to provide it with \LaTeX\ code.
+  
+  \vspace{1mm}
+  \begin{minted}[breaklines]{shell}
+lualatex -shell-escape "\newcommand\odenseonly[1]{\#1} \newcommand\sonderborgonly[1]{} \input{intro_presentation.tex}"
+  \end{minted}
+  
+  \pause
+  \vspace{5mm}
+  So, what happens here?
+  \pause
+  \begin{itemize}
+    \item Two macros a produced: One that drops its parameter and one that retains it.
+    \item Then the rest of the code is loaded. This code relies on the two macros.
+    \item In another command the functionality of the two macros is flipped.
+  \end{itemize}
 \end{frame}
 
 \subsubsection{Result}
