@@ -350,10 +350,10 @@ lualatex -shell-escape document.tex
   A package is a \LaTeX\ term for a file (or collection of files) that contain a set of macros (commands and environments) for dealing with a specialized topic.
   
   \vspace{5mm}
-  The \packagename{dirtytalk} package gives access to the \commandname{say} command. This command takes one parameter and wraps it in the proper quotation marks.
+  The \packagename{dirtytalk} package gives access to the \commandname{say} command. This command takes one parameter and wraps it in the proper quotation marks, like \say{so}.
   
   \vspace{5mm}
-  It can be included by putting the following in the \textsl{preample}:
+  It can be included by putting the following in the \textcolor{purple}{\textsl{preample}}:
   \begin{minted}[breaklines]{latex}
 \usepackage{dirtytalk}
   \end{minted}
@@ -366,14 +366,30 @@ lualatex -shell-escape document.tex
 \begin{frame}[fragile]
   \frametitle{Overall Structure \subpart{Language and Hyphenation}}
   \vspace{3mm}
+  All of this goes into the \textcolor{purple}{\textsl{preample}}.
   
+  \pause
+  \vspace{5mm}
+  Most parts of \LaTeX has multilingual support, selectable through the \packagename{babel} package:
+  \begin{minted}[breaklines]{latex}
+% use english text to ToC, sections, figures ...
+\usepackage[english]{babel}
+  \end{minted}
+  
+  \pause
+  \vspace{5mm}
+  Custom hyphenation rules can be added:
+  \begin{minted}[breaklines]{latex}
+\usepackage{hyphenat}
+\hyphenation{al-go-rithm me-cha-nics}
+  \end{minted}
 \end{frame}
 
 \subsubsection{File Inclusion}
 \begin{frame}[fragile]
   \frametitle{Overall Structure \subpart{File Inclusion}}
   \vspace{3mm}
-  As programmers, we usually have a good understanding of the problems of having all of our code in a single file.
+  As programmers, we usually have a good understanding of the problems that can stem from having all of our code in a single file.
   
   \vspace{5mm}
   In \LaTeX\ one can, in essence, include the contents of an other file like so:
