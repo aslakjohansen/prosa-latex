@@ -350,7 +350,7 @@ lualatex -shell-escape document.tex
   A package is a \LaTeX\ term for a file (or collection of files) that contain a set of macros (commands and environments) for dealing with a specialized topic.
   
   \vspace{5mm}
-  The \packagename{dirtytalk} package gives access to the \commandname{say} command. This command takes one parameter and wraps it in the proper quotation marks, like \say{so}.
+  The \packagename{dirtytalk} package gives access to the \commandname{\textbackslash say} command. This command takes one parameter and wraps it in the proper quotation marks, like \say{so}.
   
   \vspace{5mm}
   It can be included by putting the following in the \textcolor{purple}{\textsl{preample}}:
@@ -444,7 +444,7 @@ paragraph 2
   Whitespaces are treated the same way as in most other programming languages: Either there is at least one, or there is none. No need to worry about having two spaces instead of one.
   
   \vspace{5mm}
-  Horizontal and vertical space can be added with the \commandname{hspace} and \commandname{vspace} commands. They both take one parameter; a distance.
+  Horizontal and vertical space can be added with the \commandname{\textbackslash hspace} and \commandname{\textbackslash vspace} commands. They both take one parameter; a distance.
   
   \vspace{5mm}
   \LaTeX\ will break the line as it tries to optimize the document layout (by minimizing \textsl{badness}) according to the rules of the style.
@@ -767,13 +767,13 @@ Programming languages:
 \begin{frame}[fragile]
   \frametitle{References \subpart{Use}}
   \vspace{3mm}
-  A label is created using the \commandname{label} command. This will refer to the latest numerable construct.
+  A label is created using the \commandname{\textbackslash label} command. This will refer to the latest numerable construct.
   
   \vspace{5mm}
-  The number referred to by a label can be accessed using the \commandname{ref} command. Be sure to preface it with something that indicates what you are referring to (e.g., a section).
+  The number referred to by a label can be accessed using the \commandname{\textbackslash ref} command. Be sure to preface it with something that indicates what you are referring to (e.g., a section).
   
   \vspace{5mm}
-  The page number containing a label can be accessed using the \commandname{pageref} command.
+  The page number containing a label can be accessed using the \commandname{\textbackslash pageref} command.
   
   \vspace{5mm}
   \textbf{Note:} References need two parses of the \LaTeX\ compiler to function:
@@ -977,7 +977,7 @@ detaining.}.
   However, they are (i) not numbered, and (ii) appear in the outer margin.
   
   \vspace{5mm}
-  Instead of the \commandname{footnote} command you use \commandname{marginpar} (and make sure that the \packagename{marginnote} package is included).
+  Instead of the \commandname{\textbackslash footnote} command you use \commandname{\textbackslash marginpar} (and make sure that the \packagename{marginnote} package is included).
   
   \begin{tikzpicture}[remember picture,overlay]
     \node[anchor=south] () at ([yshift=-42mm]current page.south) {
