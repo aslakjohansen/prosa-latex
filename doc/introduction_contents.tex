@@ -1025,7 +1025,7 @@ call in rust looks like this:
     
     \begin{scope}[scale=0.7,transform shape]
       \node[rectangle,thick,anchor=east,draw,minimum height=\height,minimum width=8cm,align=left] (code) at ([xshift=-\dist]current page.center) {
-        \begin{minipage}{6cm}
+        \begin{minipage}{8cm}
           \inputminted[]{latex}{../src/code_inclusion/minted_inclusion.tex}
         \end{minipage}
       };
@@ -1033,9 +1033,9 @@ call in rust looks like this:
     
     \begin{scope}[scale=0.7,transform shape]
       \node[rectangle,thick,anchor=west,draw,minimum height=\height,minimum width=8cm,align=left] (output) at ([xshift=\dist]current page.center) {
-%        \begin{minipage}{6cm}
+        \begin{minipage}{8cm}
           \input{../src/code_inclusion/minted_inclusion.tex}
-%        \end{minipage}
+        \end{minipage}
       };
     \end{scope}
     
