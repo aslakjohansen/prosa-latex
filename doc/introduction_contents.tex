@@ -114,7 +114,24 @@
 \begin{frame}[fragile]
   \frametitle{What is \LaTeX? \subpart{Styles}}
   \vspace{3mm}
+  In \LaTeX, contents and presentation are (mostly) separate.
   
+  \vspace{5mm}
+  During your day-to-day writing you care about structure: Sections, paragraphs, emphasis, listing \ldots
+  
+  \vspace{5mm}
+  You don't care about how these are effectualized: Margins, fonts, colors, spacing, indents \ldots
+  
+  \vspace{5mm}
+  These things are (generally speaking) covered by a \textsl{style}, and it typically does a very good job.
+  
+  \vspace{5mm}
+  Should you not be happy with the styling rules defined in your style, then you can:
+  \begin{enumerate}
+    \item Pick another.
+    \item Adjust it.
+    \item Hardcode specifics.
+  \end{enumerate}
 \end{frame}
 
 \subsection{When to Not \LaTeX?}
@@ -124,6 +141,7 @@
   \begin{itemize}
     \descitem{Note Taking} I find that \textsl{markdown} fulfills this role adequately, and is faster to write.
     \descitem{Audience Expectations} Often, your audience will expect a Word file, and then it just doesn't make sense.
+    \descitem{Web} It it has to go on the web, something that was originally meant for HTML production is likely the way to go.
   \end{itemize}
 \end{frame}
 
@@ -1000,24 +1018,26 @@ call in rust looks like this:
 \begin{frame}[fragile]
   \frametitle{Code Inclusion \subpart{Environment}}
   \begin{tikzpicture}[remember picture,overlay]
-    \newcommand{\height}[0]{24mm}
+    \newcommand{\height}[0]{44mm}
     \newcommand{\dist}[0]{5mm}
     
     \tikzstyle{dedge} = [thick,->,>=stealth,draw=black]
     
-    \node[rectangle,thick,anchor=east,draw,minimum height=\height] (code) at ([xshift=-\dist]current page.center) {
-      \begin{minipage}{6cm}
-        \begin{minted}{latex}
-
-        \end{minted}
-      \end{minipage}
-    };
+    \begin{scope}[scale=0.7,transform shape]
+      \node[rectangle,thick,anchor=east,draw,minimum height=\height,minimum width=8cm,align=left] (code) at ([xshift=-\dist]current page.center) {
+        \begin{minipage}{6cm}
+          \inputminted[]{latex}{../src/code_inclusion/minted_inclusion.tex}
+        \end{minipage}
+      };
+    \end{scope}
     
-    \node[rectangle,thick,anchor=west,draw,minimum height=\height] (output) at ([xshift=\dist]current page.center) {
-      \begin{minipage}{6cm}
-
-      \end{minipage}
-    };
+    \begin{scope}[scale=0.7,transform shape]
+      \node[rectangle,thick,anchor=west,draw,minimum height=\height,minimum width=8cm,align=left] (output) at ([xshift=\dist]current page.center) {
+%        \begin{minipage}{6cm}
+          \input{../src/code_inclusion/minted_inclusion.tex}
+%        \end{minipage}
+      };
+    \end{scope}
     
     \draw[dedge] (code)->(output);
   \end{tikzpicture}
