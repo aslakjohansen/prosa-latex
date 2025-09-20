@@ -1304,6 +1304,27 @@ Search at
   \frametitle{Table of Contents}
   \vspace{3mm}
   
+  When constructing the table of contents (aka ToC), we can decide how deep we want it to follow into the documents section tree.
+  
+  \vspace{5mm}
+  If we want to include subsections, then we set the \texttt{tocdepth} counter to 2:
+  \begin{minted}[gobble=0]{latex}
+\setcounter{tocdepth}{2}
+  \end{minted}
+  
+  \vspace{5mm}
+  Alternatively, we can omit this.
+  
+  \pause
+  \vspace{5mm}
+  The ToC itself can be placed using this command:
+  \begin{minted}[gobble=0]{latex}
+\tableofcontents
+  \end{minted}
+  
+  \pause
+  \vspace{5mm}
+  \textbf{Note:} All of this goes into the front matter of the document.
 \end{frame}
 
 \subsection{List of Figures}
