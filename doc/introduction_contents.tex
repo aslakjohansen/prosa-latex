@@ -1284,18 +1284,18 @@ Search at
 }
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% Lists
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% Auto-Generated Lists
 
 % background color pre
 {
 \setbeamercolor{background canvas}{bg=lists}
 \renewcommand{\bgcolor}{lists}
 
-\section{Lists}
+\section{Auto-Generated Lists}
 \begin{frame}
   \vspace{25mm}
   \begin{center}
-    \Huge{Part 4:\\Lists}
+    \Huge{Part 4:\\Auto-Generated Lists}
   \end{center}
 \end{frame}
 
@@ -1404,8 +1404,35 @@ Search at
 \subsubsection{Citation and Bibliography Generation}
 \begin{frame}[fragile]
   \frametitle{Bibliography \subpart{Citation and Bibliography Generation}}
-  \vspace{3mm}
+  \vspace{-2mm}
+  Assuming that you have that database stored in \filename{references.bib}, put the following in your preample:
+  \begin{minted}[gobble=0]{latex}
+\usepackage[
+  backend=biber,
+]{biblatex}
+\addbibresource{references.bib}
+  \end{minted}
   
+  \pause
+  \vspace{3mm}
+  Now you can start citing your statements:
+  \begin{minted}[gobble=0]{latex}
+Some profound statement\cite{10.1145/1098918.1098925}.
+  \end{minted}
+  
+  \pause
+  \vspace{3mm}
+  We can then add the bibliography in the back matter:
+  \begin{minted}[gobble=0]{latex}
+\printbibliography
+  \end{minted}
+  
+  \pause
+  \vspace{3mm}
+  In between the first and the later runs of \LaTeX, make sure to run the following command:
+  \begin{minted}[gobble=0]{latex}
+biber document.bcf
+  \end{minted}
 \end{frame}
 
 \subsection{Index}
