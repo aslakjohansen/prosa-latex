@@ -837,11 +837,110 @@ Algorithm:
   \end{tikzpicture}
 \end{frame}
 
-\subsection{Tables}
+\subsection{Arranging Tabular Data}
+
+\subsubsection{Environment}
 \begin{frame}[fragile]
-  \frametitle{Tables}
+  \frametitle{Arranging Tabular Data \subpart{Environment}}
+  \vspace{30mm}
+  \begin{minted}[escapeinside=||]{latex}
+    \begin{tabular}{|\tikzmark{formatbefore}\hspace{2cm}\tikzmark{formatafter}|}
+      |\tikzmark{data}|
+    \end{tabular}
+  \end{minted}
+  \pause
+  \begin{tikzpicture}[remember picture]
+    \tikzstyle{arrow} = [thick,->,>=stealth, draw=black]
+    \tikzstyle{box} = [overlay,rectangle,thick,draw=black]
+    
+    \coordinate (format_coord) at ([yshift= 3mm] $(pic cs:formatbefore)!0.5!(pic cs:formatafter)$);
+    \coordinate (data_coord) at ([yshift=-2mm] $(pic cs:data)$);
+    
+    \node[box,minimum width=18mm, minimum height=4mm] (format_box)
+      at ([yshift= 1.1mm] $(pic cs:formatbefore)!0.5!(pic cs:formatafter)$) {};
+    \node[box,anchor=west,minimum width=72mm, minimum height=4mm] (data_box)
+      at ([yshift= 0.8mm] $(pic cs:data)$) {};
+    
+    \node[overlay,anchor=south] (format_label)
+      at ([yshift=6mm] format_box.north) {Format Definition};
+    \node[overlay,anchor=west] (data_label)
+      at ([xshift=6mm] data_box.east) {Data};
+    
+    \draw[overlay, arrow, thick] (format_label) -- (format_box);
+    \draw[overlay, arrow, thick] (data_label)   -- (data_box);
+  \end{tikzpicture}
+\end{frame}
+
+\subsubsection{Format Definition}
+\begin{frame}[fragile]
+  \frametitle{Arranging Tabular Data \subpart{Format Definition}}
   \vspace{3mm}
+  The format definition specifies how to arrange the cells of a single row, and where to place vertical lines.
   
+  \vspace{5mm}
+  Consider the row data a queue of cells.
+  
+  \pause
+  \vspace{5mm}
+  Options include:
+  \begin{itemize}
+    \pause \item \say{\texttt{|}} Place a vertical bar.
+    \pause \item \say{\texttt{l}} Consume a cell and left justify its contents.
+    \pause \item \say{\texttt{c}} Consume a cell and center its contents.
+    \pause \item \say{\texttt{r}} Consume a cell and right justify its contents.
+    \pause \item \say{\texttt{p\{5cm\}}} Consume a cell and make a (multi-line) paragraph out of its contents.
+  \end{itemize}
+\end{frame}
+
+\subsubsection{Data}
+\begin{frame}[fragile]
+  \frametitle{Arranging Tabular Data \subpart{Data}}
+  \vspace{3mm}
+  In the data segment we have a sequence of horizontal lines (\commandname{\textbackslash hline}) and rows of data.
+  
+  \vspace{5mm}
+  A row of data needs to respect the format of the \envname{tabular} environment. This means that:
+  \begin{itemize}
+    \item The cell contents needs to be separated by a \texttt{\&} character.
+    \item Each row needs to be terminated by a manual linebreak(\textsl{\textbackslash\textbackslash}).
+  \end{itemize}
+  
+  \vspace{5mm}
+  Cells can be merged and their background colored. For this, use search terms like \say{multirow}, \say{multicol} and \say{cell color}.
+\end{frame}
+
+\subsubsection{Example}
+\begin{frame}[fragile]
+  \frametitle{Arranging Tabular Data \subpart{Example}}
+  \vspace{16mm}
+  \begin{minted}[gobble=4]{latex}
+    \begin{tabular}{|lrr|}
+      \hline
+      \textbf{Country} & \textbf{Area/[$km^2$]} & \textbf{Population} \\
+      \hline
+      Denmark & 43.094 & 6.001.008 \\
+      Greece & 131.957 & 10.400.720 \\
+      Finland & 338,455 & 5.635.971 \\
+      \hline
+    \end{tabular}
+  \end{minted}
+\end{frame}
+
+\subsubsection{Result}
+\begin{frame}[fragile]
+  \frametitle{Arranging Tabular Data \subpart{Result}}
+  \vspace{24mm}
+  \begin{center}
+    \begin{tabular}{|lrr|}
+      \hline
+      \textbf{Country} & \textbf{Area/[$km^2$]} & \textbf{Population} \\
+      \hline
+      Denmark & 43.094 & 6.001.008 \\
+      Greece & 131.957 & 10.400.720 \\
+      Finland & 338,455 & 5.635.971 \\
+      \hline
+    \end{tabular}
+  \end{center}
 \end{frame}
 
 \subsection{Including Visuals}
