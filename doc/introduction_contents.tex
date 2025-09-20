@@ -1375,8 +1375,9 @@ Search at
 \subsubsection{Database}
 \begin{frame}[fragile]
   \frametitle{Bibliography \subpart{Database}}
-  \vspace{3mm}
-  \begin{minted}[gobble=0, breaklines, fontsize=\tiny]{bibtex}
+  \vspace{7mm}
+  \tikzmark{mark}
+  \begin{minted}[gobble=0,breaklines,fontsize=\tiny]{bibtex}
 @inproceedings{10.1145/1098918.1098925,
   author = {Tolle, Gilman and Polastre, Joseph and Szewczyk, Robert and Culler, David and Turner, Neil and Tu, Kevin and Burgess, Stephen and Dawson, Todd and Buonadonna, Phil and Gay, David and Hong, Wei},
   title = {A macroscope in the redwoods},
@@ -1395,6 +1396,19 @@ Search at
   series = {SenSys '05}
 }
   \end{minted}
+  \pause
+  \begin{tikzpicture}[remember picture]
+    \tikzstyle{arrow} = [thick,->,>=stealth, draw=black]
+    \tikzstyle{box} = [overlay,rectangle,thick,draw=black]
+    
+    \node[box,minimum width=27mm, minimum height=4mm] (box)
+      at ([xshift=29.5mm,yshift=-2.75mm] $(pic cs:mark)$) {};
+    
+    \node[overlay,anchor=south] (label)
+      at ([yshift=4mm] box.north) {Remember this!};
+    
+    \draw[overlay, arrow, thick] (label) -- (box);
+  \end{tikzpicture}
 \end{frame}
 
 \subsubsection{Citation and Bibliography Generation}
