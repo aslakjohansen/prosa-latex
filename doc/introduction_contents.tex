@@ -823,7 +823,51 @@ Algorithm:
 \subsection{Colors}
 \begin{frame}[fragile]
   \frametitle{Colors}
-  \vspace{3mm}
+  
+  \begin{tikzpicture}[remember picture,overlay]
+    \newcommand{\height}[0]{24mm}
+    \newcommand{\dist}[0]{5mm}
+    
+    \tikzstyle{dedge} = [thick,->,>=stealth,draw=black]
+    
+    \node[rectangle,thick,anchor=east,draw,minimum height=\height] (code) at ([xshift=-\dist]current page.center) {
+      \begin{minipage}{6cm}
+        \begin{minted}[fontsize=\tiny]{latex}
+% -- preample
+
+\usepackage{color}
+
+% -- main matter
+
+\definecolor{myfavcolor}{rgb}{0.49,0.79,0.62}
+
+Text can be \textcolor{purple}{colored}!
+
+Colors can be
+\textcolor{myfavcolor}{customized}!
+
+And they can be declared
+\textcolor{red!27!green}{inline}!
+        \end{minted}
+      \end{minipage}
+    };
+    
+    \node[rectangle,thick,anchor=west,align=left,draw,minimum height=\height] (output) at ([xshift=\dist]current page.center) {
+      \begin{minipage}{6cm}
+\definecolor{myfavcolor}{rgb}{0.49,0.79,0.62}
+
+Text can be \textcolor{purple}{colored}!
+
+Colors can be \textcolor{myfavcolor}{customized}!
+
+And they can be declared \textcolor{red!27!green}{inline}!
+      \end{minipage}
+    };
+    
+    \draw[dedge] (code)->(output);
+  \end{tikzpicture}
+  
+  \vspace{60mm}
   \LaTeX\ provides a set of predefined color names: \url{https://latexcolor.com}
 \end{frame}
 
