@@ -1358,7 +1358,28 @@ Search at
 \begin{frame}[fragile]
   \frametitle{Index}
   \vspace{3mm}
+  At its core, an index allows us to look up a term and get a set of pages relevant for that term.
   
+  \vspace{4mm}
+  To tag a position for inclusion in the index under a specific term, use the command:
+  \begin{minted}[gobble=0]{latex}
+\index{Term}
+  \end{minted}
+  
+  \vspace{4mm}
+  At the back matter of your document, then add:
+  \begin{minted}[gobble=0]{latex}
+\printindex
+  \end{minted}
+  
+  \vspace{4mm}
+  In between the first and the later runs of \LaTeX, make sure to run the following command:
+  \begin{minted}[gobble=0]{shell}
+makeindex document.idx
+  \end{minted}
+  
+  \vspace{4mm}
+  It will generate your index.
 \end{frame}
 
 % background color post
