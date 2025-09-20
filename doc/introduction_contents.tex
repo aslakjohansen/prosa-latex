@@ -1366,18 +1366,39 @@ Search at
   \LaTeX\ has an extensive framework for working with such citations.
 \end{frame}
 
-\subsubsection{Database}
-\begin{frame}[fragile]
-  \frametitle{Bibliography \subpart{Database}}
-  \vspace{3mm}
-  
-\end{frame}
-
 \subsubsection{Database Population}
 \begin{frame}[fragile]
   \frametitle{Bibliography \subpart{Database Population}}
   \vspace{3mm}
   
+  \begin{tikzpicture}[remember picture,overlay]
+    \node[anchor=north] () at ([yshift=-0.5cm]current page.north) {\only<1>{\includeBitmap{acmpaper1.png}{13cm}}\only<2>{\includeBitmap{acmpaper2.png}{13cm}}};
+  \end{tikzpicture}
+\end{frame}
+
+\subsubsection{Database}
+\begin{frame}[fragile]
+  \frametitle{Bibliography \subpart{Database}}
+  \vspace{3mm}
+  \begin{minted}[gobble=0, breaklines, fontsize=\tiny]{bibtex}
+@inproceedings{10.1145/1098918.1098925,
+  author = {Tolle, Gilman and Polastre, Joseph and Szewczyk, Robert and Culler, David and Turner, Neil and Tu, Kevin and Burgess, Stephen and Dawson, Todd and Buonadonna, Phil and Gay, David and Hong, Wei},
+  title = {A macroscope in the redwoods},
+  year = {2005},
+  isbn = {159593054X},
+  publisher = {Association for Computing Machinery},
+  address = {New York, NY, USA},
+  url = {https://doi.org/10.1145/1098918.1098925},
+  doi = {10.1145/1098918.1098925},
+  abstract = {The wireless sensor network "macroscope" offers the potential to advance science by enabling dense temporal and spatial monitoring of large physical volumes. This paper presents a case study of a wireless sensor network that recorded 44 days in the life of a 70-meter tall redwood tree, at a density of every 5 minutes in time and every 2 meters in space. Each node measured air temperature, relative humidity, and photosynthetically active solar radiation. The network captured a detailed picture of the complex spatial variation and temporal dynamics of the microclimate surrounding a coastal redwood tree. This paper describes the deployed network and then employs a multi-dimensional analysis methodology to reveal trends and gradients in this large and previously-unobtainable dataset. An analysis of system performance data is then performed, suggesting lessons for future deployments.},
+  booktitle = {Proceedings of the 3rd International Conference on Embedded Networked Sensor Systems},
+  pages = {51–63},
+  numpages = {13},
+  keywords = {wireless sensor networks, microclimate monitoring, macroscope, application analysis},
+  location = {San Diego, California, USA},
+  series = {SenSys '05}
+}
+  \end{minted}
 \end{frame}
 
 \subsubsection{Citation and Bibliography Generation}
@@ -1386,7 +1407,6 @@ Search at
   \vspace{3mm}
   
 \end{frame}
-
 
 \subsection{Index}
 \begin{frame}[fragile]
