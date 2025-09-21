@@ -1097,7 +1097,14 @@ And they can be declared \textcolor{red!27!green}{inline}!
 \begin{frame}[fragile]
   \frametitle{Floats \subpart{Figures}}
   \vspace{3mm}
-  
+  You define a figure like this:
+  \begin{minted}{latex}
+\begin{figure}[tbp]
+  % contents goes here
+  \caption{Description of figure}
+  \label{fig:tag}
+\end{figure}
+  \end{minted}
 \end{frame}
 
 \subsubsection{Tables}
