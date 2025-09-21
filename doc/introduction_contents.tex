@@ -1121,8 +1121,42 @@ And they can be declared \textcolor{red!27!green}{inline}!
 \subsubsection{Positioning}
 \begin{frame}[fragile]
   \frametitle{Floats \subpart{Positioning}}
-  \vspace{3mm}
+  \vspace{0mm}
+  \begin{minted}[escapeinside=||]{latex}
+\begin{figure}[|\tikzmark{before}|tbp|\tikzmark{after}|]
+  % contents goes here
+  \caption{Description of figure}
+  \label{fig:tag}
+\end{figure}
+  \end{minted}
+  \pause
+  \begin{tikzpicture}[remember picture]
+    \tikzstyle{arrow} = [thick,->,>=stealth, draw=black]
+    \tikzstyle{box} = [overlay,rectangle,thick,draw=black]
+    
+    \node[box,minimum width=7mm, minimum height=4mm] (box)
+      at ([yshift= 1.1mm] $(pic cs:before)!0.5!(pic cs:after)$) {};
+    
+    \node[overlay,anchor=west] (label)
+      at ([xshift=6mm] box.east) {What about this?};
+    
+    \draw[overlay, arrow, thick] (label) -- (box);
+  \end{tikzpicture}
   
+  \pause
+  \vspace{-1mm}
+  These are the positioning instructions. It instructs \LaTeX\ where it is allowed to place the float. It supports the following codes:
+  \begin{itemize}
+    \item \say{\textcolor{purple}{\texttt{t}}} Float can be placed at the top of a page.
+    \item \say{\textcolor{purple}{\texttt{b}}} Float can be placed at the bottom of a page.
+    \item \say{\textcolor{purple}{\texttt{p}}} Float can be placed at a page with nothing but floats.
+    \item \say{\textcolor{purple}{\texttt{h}}} Float should be placed \textsl{approximately here}.
+    \item \say{\textcolor{purple}{\texttt{!}}} Override internal parameters that \LaTeX\ uses to determine \textsl{good} positions.
+  \end{itemize}
+  
+  \pause
+  \vspace{2mm}
+  In general, avoid the latter two.
 \end{frame}
 
 \subsection{Footnotes}
