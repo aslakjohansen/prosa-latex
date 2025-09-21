@@ -1093,9 +1093,9 @@ And they can be declared \textcolor{red!27!green}{inline}!
   In short, they should \textcolor{purple}{\textsl{float}}.
 \end{frame}
 
-\subsubsection{Figures}
+\subsubsection{Figures and Tables}
 \begin{frame}[fragile]
-  \frametitle{Floats \subpart{Figures}}
+  \frametitle{Floats \subpart{Figures and Tables}}
   \vspace{3mm}
   You define a figure like this:
   \begin{minted}{latex}
@@ -1105,13 +1105,17 @@ And they can be declared \textcolor{red!27!green}{inline}!
   \label{fig:tag}
 \end{figure}
   \end{minted}
-\end{frame}
-
-\subsubsection{Tables}
-\begin{frame}[fragile]
-  \frametitle{Floats \subpart{Tables}}
-  \vspace{3mm}
   
+  \pause
+  \vspace{5mm}
+  You define a table like this:
+  \begin{minted}{latex}
+\begin{table}[tbp]
+  % contents goes here
+  \caption{Description of table}
+  \label{table:tag}
+\end{table}
+  \end{minted}
 \end{frame}
 
 \subsubsection{Positioning}
