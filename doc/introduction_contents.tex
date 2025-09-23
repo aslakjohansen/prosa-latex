@@ -1609,14 +1609,36 @@ makeindex document.idx
 \begin{frame}[fragile]
   \frametitle{Locating the Error}
   \vspace{3mm}
+  Unfortunately, \LaTeX\ errors are notorious for being hard to reason about.
   
+  \pause
+  \vspace{5mm}
+  Often, the line number does not reflect the actual line in the source file.
+  
+  \pause
+  \vspace{5mm}
+  Because of this, I often build the document.
+  
+  \pause
+  \vspace{5mm}
+  If in doubt, use binary search by commenting out large blocks of code to locate the issue.
 \end{frame}
 
 \subsection{Googling the Error}
 \begin{frame}[fragile]
   \frametitle{Googling the Error}
   \vspace{3mm}
+  Most errors are easily googleable, and will yield hits on sites like StackOverflow.
   
+  \pause
+  \vspace{5mm}
+  In order to get good results, you should:
+  \begin{itemize}
+    \item Carefully consider which part to copy paste in. These errors can be verbose.
+    \item Consider the type of error.
+    \item Try to figure out what could cause such an error, and figure out whether these conditions apply to you.
+    \item Don't be afraid to take an extra step down the rabbit hole.
+  \end{itemize}
 \end{frame}
 
 % background color post
