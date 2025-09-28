@@ -1076,8 +1076,32 @@ And they can be declared \textcolor{red!27!green}{inline}!
 \subsubsection{Bitmapped Graphics}
 \begin{frame}[fragile]
   \frametitle{Including Visuals \subpart{Bitmapped Graphics}}
-  \vspace{3mm}
-  
+  \begin{tikzpicture}[remember picture,overlay]
+    \newcommand{\height}[0]{24mm}
+    \newcommand{\dist}[0]{5mm}
+    \newcommand{\xShift}[0]{15mm}
+    
+    \tikzstyle{dedge} = [thick,->,>=stealth,draw=black]
+    
+    \matrix[column sep=2*\dist] at (current page.center) {
+      \node[rectangle,thick,anchor=east,draw,minimum height=\height] (code) {
+        \begin{minipage}{8cm}
+          \begin{minted}[fontsize=\normalsize]{latex}
+  \includegraphics[width=45mm]{
+    ./figs/dscf0013016.png
+  }
+          \end{minted}
+        \end{minipage}
+      };
+      &
+      \node[rectangle,thick,anchor=west,draw,minimum height=\height] (output) {
+  \includegraphics[width=45mm]{./figs/dscf0013016.png}
+      };
+      \\
+    };
+    
+    \draw[dedge] (code)->(output);
+  \end{tikzpicture}
 \end{frame}
 
 \subsection{Floats}
