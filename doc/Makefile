@@ -2,6 +2,9 @@ TARGETS = \
 	introduction_presentation.pdf \
 	intermediate_presentation.pdf \
 
+INTRODUCTION_DEPS = \
+	./figs/vector.pdf \
+
 INTERMEDIATE_DEPS = \
 	../src/table_heatmap/code.txt \
 	../src/table_heatmap/code.tex \
@@ -19,6 +22,10 @@ mrproper: clean
 	rm        *~ *.aux *.log *.nav *.out *.snm *.toc *.vrb *.minted
 
 
+./figs/vector.pdf: ./figs/vector.svg
+	inkscape ./figs/vector.svg -z -D -o ./figs/vector.pdf
+
+
 ../src/table_heatmap/code.txt: ../src/table_heatmap/code.py
 	../src/table_heatmap/code.py > ../src/table_heatmap/code.txt
 
@@ -29,7 +36,7 @@ figs/sdi.tex: figs/sdi.graphml ../bin/generate-sdi-tikz-figure.py
 	../bin/generate-sdi-tikz-figure.py figs/sdi.graphml figs/sdi.tex
 
 
-introduction_presentation.pdf: introduction_presentation.tex introduction_contents.tex introduction_shared.tex shared.tex Makefile
+introduction_presentation.pdf: introduction_presentation.tex introduction_contents.tex introduction_shared.tex shared.tex Makefile ${INTRODUCTION_DEPS}
 	lualatex  -shell-escape introduction_presentation.tex
 	lualatex  -shell-escape introduction_presentation.tex
 
