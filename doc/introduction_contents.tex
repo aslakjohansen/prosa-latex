@@ -1074,7 +1074,7 @@ And they can be declared \textcolor{red!27!green}{inline}!
         \begin{minipage}{8cm}
           \begin{minted}[fontsize=\normalsize]{latex}
   \includegraphics[width=45mm]{
-    ./figs/vector.png
+    ./figs/vector.pdf
   }
           \end{minted}
         \end{minipage}
@@ -1094,7 +1094,33 @@ And they can be declared \textcolor{red!27!green}{inline}!
 \begin{frame}[fragile]
   \frametitle{Including Visuals \subpart{SVG Graphics}}
   \vspace{3mm}
+  While that figure was included as a PDF file, it was created as an SVG file using \textsl{Inkscape}: \url{https://inkscape.org}
   
+  \pause
+  \vspace{5mm}
+  There is, however, no native process for including an SVG file in \LaTeX.
+  
+  \pause
+  \vspace{5mm}
+  Instead, we can use Inkscape to convert it to PDF:
+  \begin{minted}{shell-session}
+$ inkscape ./figs/vector.svg -z -D -o ./figs/vector.pdf
+  \end{minted}
+  
+  \vspace{5mm}
+  That line is straight out of the build system for this presentation.
+  
+  \pause
+  \vspace{5mm}
+  And the SVG file, in its entirety, looks like this \ldots
+\end{frame}
+\subsubsection{SVG Source}
+\begin{frame}[fragile]
+  \frametitle{Including Visuals \subpart{SVG Source}}
+  \vspace{-6mm}
+  \begin{multicols}{2}
+    \inputminted[fontsize=\fontsize{5}{6}\selectfont]{xml}{./figs/vector.svg}
+  \end{multicols}
 \end{frame}
 
 \subsubsection{Bitmapped Graphics}
