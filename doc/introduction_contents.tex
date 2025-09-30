@@ -459,6 +459,21 @@ paragraph 2
 \begin{frame}[fragile]
   \frametitle{Commands and Environments}
   \vspace{3mm}
+  A \textsl{command} is a macro that can be expanded by writing its name prefixed y a backslash and with parameters, each in a set of curly braces:
+  
+  \begin{minted}{latex}
+\say{Hello, World}
+  \end{minted}
+  
+  \pause
+  \vspace{5mm}
+  An environment is another form of macro, that can be expanded by wrapping code in a \commandname{\textbackslash begin} and an \commandname{\textbackslash end} command like so:
+  
+  \begin{minted}{latex}
+\begin{center}
+  Some text.
+\end{center}
+  \end{minted}
 \end{frame}
 
 \subsection{Spacing}
