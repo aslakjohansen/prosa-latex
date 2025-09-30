@@ -38,14 +38,16 @@
     \item These distractions slows down the writing process.
   \end{itemize}
   
+  \pause
   \vspace{5mm}
   WYSIWYG editors provide little help managing references of any kind.
   
   \vspace{5mm}
   WYSIWYG editors generally encourage bitmapped graphics.
   
+  \pause
   \vspace{5mm}
-  WYSIWYG editors tends to result little consistency in the resulting documents.
+  WYSIWYG editors tends to result in little consistency in the produced documents.
   
   \vspace{5mm}
   The formats employed by WISIWYG editors are usually horrible in terms of version control.
@@ -65,6 +67,7 @@
     \item Web-based editors (like overleaf) exists and work fairly well.
   \end{itemize}
   
+  \pause
   \vspace{5mm}
   \LaTeX\ (mostly) decouples structure and presentation.
   \begin{itemize}
@@ -86,6 +89,7 @@
     \item References to any of these \textsl{just work}.
   \end{itemize}
   
+  \pause
   \vspace{4mm}
   \LaTeX\ is a professional typesetting system and thus vector based.
   \begin{itemize}
@@ -93,6 +97,7 @@
     \item But it is also trivial to include bitmapped graphics.
   \end{itemize}
   
+  \pause
   \vspace{4mm}
   \textbf{Note:} This essentially mitigates the observations.
 \end{frame}
@@ -107,24 +112,30 @@
   It relies heavily on the concept of macro expansion.
   
   \vspace{5mm}
-  \LaTeX\ is extended through packages. Currently there are 6000+ such packages on CTAN: \url{https://ctan.org}
+  \LaTeX\ is extended through packages. Currently there are 6000$^+$ such packages on CTAN:
+  
+  \begin{center}
+    \textcolor{blue}{\url{https://ctan.org}}
+  \end{center}
 \end{frame}
 
 \subsection{Styles}
 \begin{frame}[fragile]
   \frametitle{What is \LaTeX? \subpart{Styles}}
-  \vspace{3mm}
+  \vspace{1mm}
   In \LaTeX, contents and presentation are (mostly) separate.
   
   \vspace{5mm}
   During your day-to-day writing you care about structure: Sections, paragraphs, emphasis, listing \ldots
   
+  \pause
   \vspace{5mm}
   You don't care about how these are effectualized: Margins, fonts, colors, spacing, indents \ldots
   
   \vspace{5mm}
   These things are (generally speaking) covered by a \textsl{style}, and it typically does a very good job.
   
+  \pause
   \vspace{5mm}
   Should you not be happy with the styling rules defined in your style, then you can:
   \begin{enumerate}
@@ -141,6 +152,7 @@
   \begin{itemize}
     \descitem{Note Taking} I find that \textsl{markdown} fulfills this role adequately, and is faster to write.
     \descitem{Audience Expectations} Often, your audience will expect a Word file, and then it just doesn't make sense.
+    \descitem{Collaborator Skillset} Often, your collaborators won't be familiar with \LaTeX, and then it simply isn't on the path of least resistance.
     \descitem{Web} It it has to go on the web, something that was originally meant for HTML production is likely the way to go.
   \end{itemize}
 \end{frame}
@@ -200,6 +212,7 @@
   \vspace{5mm}
   All of this combined is referred to as a \LaTeX\ distribution.
   
+  \pause
   \vspace{5mm}
   There exists a number of precompiled distributions:
   \begin{itemize}
@@ -214,10 +227,13 @@
   \frametitle{Commandline}
   \vspace{3mm}
   Running the \LaTeX\ interpreter is done using the following command:
+  
   \begin{minted}[breaklines]{shell-session}
 lualatex document.tex
   \end{minted}
+  
   or, if you are using \packagename{minted} for source code highlighting:
+  
   \begin{minted}[breaklines]{shell-session}
 lualatex -shell-escape document.tex
   \end{minted}
@@ -349,6 +365,7 @@ lualatex -shell-escape document.tex
   \vspace{3mm}
   A package is a \LaTeX\ term for a file (or collection of files) that contain a set of macros (commands and environments) for dealing with a specialized topic.
   
+  \pause
   \vspace{5mm}
   The \packagename{dirtytalk} package gives access to the \commandname{\textbackslash say} command. This command takes one parameter and wraps it in the proper quotation marks, like \say{so}.
   
@@ -358,6 +375,7 @@ lualatex -shell-escape document.tex
 \usepackage{dirtytalk}
   \end{minted}
   
+  \pause
   \vspace{5mm}
   This is a very simple package. Others -- like \TikZ\ and \packagename{minted} -- are much more extensive.
 \end{frame}
@@ -370,7 +388,7 @@ lualatex -shell-escape document.tex
   
   \pause
   \vspace{5mm}
-  Most parts of \LaTeX has multilingual support, selectable through the \packagename{babel} package:
+  Most parts of \LaTeX\ has multilingual support, selectable through the \packagename{babel} package:
   \begin{minted}[breaklines]{latex}
 % use english text to ToC, sections, figures ...
 \usepackage[english]{babel}
