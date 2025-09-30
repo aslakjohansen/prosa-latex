@@ -485,6 +485,7 @@ paragraph 2
   \vspace{5mm}
   Horizontal and vertical space can be added with the \commandname{\textbackslash hspace} and \commandname{\textbackslash vspace} commands. They both take one parameter; a distance.
   
+  \pause
   \vspace{5mm}
   \LaTeX\ will break the line as it tries to optimize the document layout (by minimizing \textsl{badness}) according to the rules of the style.
   
@@ -808,12 +809,14 @@ Programming languages:
   \vspace{3mm}
   A label is created using the \commandname{\textbackslash label} command. This will refer to the latest numerable construct.
   
+  \pause
   \vspace{5mm}
   The number referred to by a label can be accessed using the \commandname{\textbackslash ref} command. Be sure to preface it with something that indicates what you are referring to (e.g., a section).
   
   \vspace{5mm}
   The page number containing a label can be accessed using the \commandname{\textbackslash pageref} command.
   
+  \pause
   \vspace{5mm}
   \textbf{Note:} References need two parses of the \LaTeX\ compiler to function:
   \begin{itemize}
@@ -838,7 +841,7 @@ Algorithm:
 \begin{enumerate}
   \item Initialize.
   \item \label{id} Do stuff.
-  \item Go to \ref{id}.
+  \item Go to step \ref{id}.
 \end{enumerate}
         \end{minted}
       \end{minipage}
@@ -907,7 +910,7 @@ And they can be declared \textcolor{red!27!green}{inline}!
   \end{tikzpicture}
   
   \vspace{60mm}
-  \LaTeX\ provides a set of predefined color names: \url{https://latexcolor.com}
+  \LaTeX\ provides a set of predefined color names: \textcolor{blue}{\url{https://latexcolor.com}}
 \end{frame}
 
 \subsubsection{Predefined}
@@ -926,6 +929,7 @@ And they can be declared \textcolor{red!27!green}{inline}!
 \begin{frame}[fragile]
   \frametitle{Arranging Tabular Data \subpart{Environment}}
   \vspace{30mm}
+  \pause
   \begin{minted}[escapeinside=||]{latex}
     \begin{tabular}{|\tikzmark{formatbefore}\hspace{2cm}\tikzmark{formatafter}|}
       |\tikzmark{data}|
@@ -981,6 +985,7 @@ And they can be declared \textcolor{red!27!green}{inline}!
   \vspace{3mm}
   In the data segment we have a sequence of horizontal lines (\commandname{\textbackslash hline}) and rows of data.
   
+  \pause
   \vspace{5mm}
   A row of data needs to respect the format of the \envname{tabular} environment. This means that:
   \begin{itemize}
@@ -988,6 +993,7 @@ And they can be declared \textcolor{red!27!green}{inline}!
     \item Each row needs to be terminated by a manual linebreak(\textsl{\textbackslash\textbackslash}).
   \end{itemize}
   
+  \pause
   \vspace{5mm}
   Cells can be merged and their background colored. For this, use search terms like \say{multirow}, \say{multicol} and \say{cell color}.
 \end{frame}
@@ -1032,6 +1038,7 @@ And they can be declared \textcolor{red!27!green}{inline}!
   \vspace{3mm}
   When it comes to visual aids, \LaTeX\ supports a number of different types.
   
+  \pause
   \begin{center}
     \begin{tikzpicture}[]
       \newcommand{\bitmapX}[0]{0mm}
@@ -1127,7 +1134,7 @@ And they can be declared \textcolor{red!27!green}{inline}!
 \begin{frame}[fragile]
   \frametitle{Including Visuals \subpart{SVG Graphics}}
   \vspace{3mm}
-  While that figure was included as a PDF file, it was created as an SVG file using \textsl{Inkscape}: \url{https://inkscape.org}
+  While that figure was included as a PDF file, it was created as an SVG file using \textsl{Inkscape}: \textcolor{blue}{\url{https://inkscape.org}}
   
   \pause
   \vspace{5mm}
@@ -1159,6 +1166,7 @@ $ inkscape ./figs/vector.svg -z -D -o ./figs/vector.pdf
 \subsubsection{Bitmapped Graphics}
 \begin{frame}[fragile]
   \frametitle{Including Visuals \subpart{Bitmapped Graphics}}
+  \pause
   \begin{tikzpicture}[remember picture,overlay]
     \newcommand{\height}[0]{24mm}
     \newcommand{\dist}[0]{5mm}
@@ -1234,7 +1242,7 @@ $ inkscape ./figs/vector.svg -z -D -o ./figs/vector.pdf
 \subsubsection{Positioning}
 \begin{frame}[fragile]
   \frametitle{Floats \subpart{Positioning}}
-  \vspace{0mm}
+  \vspace{-2mm}
   \begin{minted}[escapeinside=||]{latex}
 \begin{figure}[|\tikzmark{before}|tbp|\tikzmark{after}|]
   % contents goes here
@@ -1402,6 +1410,7 @@ call in rust looks like this:
   \vspace{5mm}
   At first, it can be quite daunting to remember the syntax and code for all the different constructs.
   
+  \pause
   \vspace{5mm}
   But the reality is that there is a system behind the madness, and the set of constructs you are going to be using on a daily basis is very small and easily remembered.
   
@@ -1452,7 +1461,7 @@ $c = \sqrt{a^2+b^2}$.
     \tikzstyle{dedge} = [thick,->,>=stealth,draw=black]
     
     \node[rectangle,thick,anchor=east,draw,minimum height=\height] (code) at ([xshift=-\dist]current page.center) {
-      \begin{minipage}{6cm}
+      \begin{minipage}{6.5cm}
         \begin{minted}[fontsize=\footnotesize]{latex}
 \begin{align*}
   a^2 &= b^2 + b^2 \Leftrightarrow \\
@@ -1463,7 +1472,7 @@ $c = \sqrt{a^2+b^2}$.
     };
     
     \node[rectangle,thick,anchor=west,draw,minimum height=\height] (output) at ([xshift=\dist]current page.center) {
-      \begin{minipage}{6cm}
+      \begin{minipage}{6.5cm}
 \begin{align*}
   a^2 &= b^2 + b^2 \Leftrightarrow \\
   a   &= \sqrt{b^2 + b^2}
@@ -1839,7 +1848,7 @@ makeindex document.idx
   
   \pause
   \vspace{5mm}
-  Because of this, I often build the document.
+  Because of this, I frequently build the document.
   
   \pause
   \vspace{5mm}
