@@ -45,10 +45,10 @@
   \vspace{5mm}
   WYSIWYG editors generally encourage bitmapped graphics.
   
-  \pause
   \vspace{5mm}
   WYSIWYG editors tends to result in little consistency in the produced documents.
   
+  \pause
   \vspace{5mm}
   The formats employed by WISIWYG editors are usually horrible in terms of version control.
   
@@ -137,7 +137,7 @@
   
   \pause
   \vspace{5mm}
-  Should you not be happy with the styling rules defined in your style, then you can:
+  Should you be unhappy with the styling rules defined in your style, then you can:
   \begin{enumerate}
     \item Pick another.
     \item Adjust it.
@@ -152,7 +152,7 @@
   \begin{itemize}
     \descitem{Note Taking} I find that \textsl{markdown} fulfills this role adequately, and is faster to write.
     \descitem{Audience Expectations} Often, your audience will expect a Word file, and then it just doesn't make sense.
-    \descitem{Collaborator Skillset} Often, your collaborators won't be familiar with \LaTeX, and then it simply isn't on the path of least resistance.
+    \descitem{Collaborator Skill Set} Often, your collaborators won't be familiar with \LaTeX, and then it simply isn't on the path of least resistance.
     \descitem{Web} It it has to go on the web, something that was originally meant for HTML production is likely the way to go.
   \end{itemize}
 \end{frame}
@@ -185,9 +185,9 @@
   \vspace{4mm}
   Options:
   \begin{itemize}
-    \descitem{pdflatex} The old engine that is fast but lacks native unicode and modern OpenType font support. These are not serious restrictions.
-    \descitem{xelatex} A more modern version of \textdesc{pdflatex} that fixes its downsides. But on the flipside it is slower and has not been actively developed since 2017.
-    \descitem{lualatex} The most modern engine is scriptable through Lua. It also fixes the issues with \textdesc{pdflatex} and is under active development. It is even slower though.
+    \pause \descitem{pdflatex} The old engine that is fast but lacks native unicode and modern OpenType font support. These are not serious restrictions.
+    \pause \descitem{xelatex} A more modern version of \textdesc{pdflatex} that fixes its downsides. But on the flipside it is slower and has not been actively developed since 2017.
+    \pause \descitem{lualatex} The most modern engine is scriptable through Lua. It also fixes the issues with \textdesc{pdflatex} and is under active development. It is even slower though.
       \begin{itemize}
         \item This is the way to go for new projects.
         \item From this point on, we will assume \textdesc{lualatex}.
@@ -255,41 +255,45 @@ lualatex -shell-escape document.tex
 \subsubsection{Hosting Options}
 \begin{frame}[fragile]
   \frametitle{Overleaf \subpart{Hosting Options}}
+  \pause
   \vspace{3mm}
   Cloud:
   \begin{itemize}
     \item Paid and free tier.
-    \item Paid tier provices GIT support.
+    \item Paid tier provides GIT support.
     \item Issues with uptime.
   \end{itemize}
   
+  \pause
   \vspace{5mm}
   Self-hosted:
   \begin{itemize}
     \item No GIT support.
-    \item If all else fails, you can pull the data out yourself.
+    \item But if all else fails, you can pull the data out yourself.
   \end{itemize}
 \end{frame}
 
-\subsection{Make}
+\subsection{Building with Make}
 \begin{frame}[fragile]
-  \frametitle{Make}
+  \frametitle{Building with Make}
   \vspace{-1mm}
   \inputminted[fontsize=\tiny]{make}{Makefile}
 \end{frame}
 
-\subsection{GIT}
+\subsection{Versioning with GIT}
 \begin{frame}[fragile]
-  \frametitle{GIT}
+  \frametitle{Versioning with GIT}
   \vspace{3mm}
   GIT is used for keeping tract of revisions of (primarily) human-readable files.
   
   \vspace{5mm}
   This is usually used for program code.
   
+  \pause
   \vspace{5mm}
   \LaTeX\ is a programming language, and when we execute \LaTeX\ code (through an interpreter) then we get a PDF file.
   
+  \pause
   \vspace{5mm}
   A GIT repository can easily contain both your program code and your report.
   
@@ -436,22 +440,23 @@ lualatex -shell-escape document.tex
   \vspace{5mm}
   What is available to you depends on your \textsl{style}.
   
+  \pause
   \vspace{5mm}
   \begin{minted}[fontsize=\footnotesize,breaklines]{latex}
 \part{Reasoning}
-\section{Introduction}
+\chapter{Introduction}
 
 paragraph 1
 
 paragraph 2
 
-\subsection{Problem}
-\subsection{Approach}
-\section{Analysis}
-\subsection{Themes}
-\subsubsection{Build Systems}
-\subsubsection{Scripting}
-\subsection{Sub-Conclusion}
+\section{Problem}
+\section{Approach}
+\chapter{Analysis}
+\section{Themes}
+\subsection{Build Systems}
+\subsection{Scripting}
+\section{Sub-Conclusion}
   \end{minted}
 \end{frame}
 
@@ -482,15 +487,16 @@ paragraph 2
   \vspace{3mm}
   Whitespaces are treated the same way as in most other programming languages: Either there is at least one, or there is none. No need to worry about having two spaces instead of one.
   
-  \vspace{5mm}
-  Horizontal and vertical space can be added with the \commandname{\textbackslash hspace} and \commandname{\textbackslash vspace} commands. They both take one parameter; a distance.
-  
   \pause
   \vspace{5mm}
   \LaTeX\ will break the line as it tries to optimize the document layout (by minimizing \textsl{badness}) according to the rules of the style.
   
   \vspace{5mm}
   \textbf{Note:} This can make it hard to force a specific placement.
+  
+  \pause
+  \vspace{5mm}
+  Horizontal and vertical space can be added with the \commandname{\textbackslash hspace} and \commandname{\textbackslash vspace} commands. They both take one parameter; a distance.
 \end{frame}
 
 \subsubsection{Horizontal Space}
@@ -646,6 +652,7 @@ normal \\
 \subsection{Listings}
 \begin{frame}[fragile]
   \frametitle{Listings}
+  \pause
   \vspace{3mm}
   General considerations when deciding between ordered or unordered lists:
   
@@ -787,6 +794,7 @@ Programming languages:
   \vspace{3mm}
   Numbered \textsl{things} can be labeled and referenced by their number or their page.
   
+  \pause
   \vspace{5mm}
   These include:
   \begin{itemize}
@@ -1408,6 +1416,8 @@ call in rust looks like this:
   \end{tikzpicture}
 \end{frame}
 
+% TODO: via path
+
 \subsection{Mathematics}
 \begin{frame}[fragile]
   \frametitle{Mathematics}
@@ -1421,9 +1431,11 @@ call in rust looks like this:
   \vspace{5mm}
   But the reality is that there is a system behind the madness, and the set of constructs you are going to be using on a daily basis is very small and easily remembered.
   
+  \pause
   \vspace{5mm}
   For instance, the command for producing a fraction is called \commandname{\textbackslash frac} and takes two parameters: First a nominator, and then a denominator. The \commandname{\textbackslash sqrt} command produces a square root symbol and takes one parameter.
   
+  \pause
   \vspace{5mm}
   And the web is littered with tables containing codes for Greek letters and all kinds of weird symbols. Just do an image search.
 \end{frame}
@@ -1471,8 +1483,8 @@ $c = \sqrt{a^2+b^2}$.
       \begin{minipage}{6.5cm}
         \begin{minted}[fontsize=\footnotesize]{latex}
 \begin{align*}
-  a^2 &= b^2 + b^2 \Leftrightarrow \\
-  a   &= \sqrt{b^2 + b^2}
+  a^2 &= b^2 + c^2 \Leftrightarrow \\
+  a   &= \sqrt{b^2 + c^2}
 \end{align*}
         \end{minted}
       \end{minipage}
@@ -1481,8 +1493,8 @@ $c = \sqrt{a^2+b^2}$.
     \node[rectangle,thick,anchor=west,draw,minimum height=\height] (output) at ([xshift=\dist]current page.center) {
       \begin{minipage}{6.5cm}
 \begin{align*}
-  a^2 &= b^2 + b^2 \Leftrightarrow \\
-  a   &= \sqrt{b^2 + b^2}
+  a^2 &= b^2 + c^2 \Leftrightarrow \\
+  a   &= \sqrt{b^2 + c^2}
 \end{align*}
       \end{minipage}
     };
@@ -1505,9 +1517,9 @@ $c = \sqrt{a^2+b^2}$.
         \begin{minted}[fontsize=\footnotesize]{latex}
 \begin{align}
   \label{pyth1}
-  a^2 &= b^2 + b^2 \Leftrightarrow \\
+  a^2 &= b^2 + c^2 \Leftrightarrow \\
   \label{pyth2}
-  a   &= \sqrt{b^2 + b^2}
+  a   &= \sqrt{b^2 + c^2}
 \end{align}
 Pythagoras can be expressed as
 either of equations \ref{pyth1}
@@ -1520,9 +1532,9 @@ or \ref{pyth2}.
       \begin{minipage}{6.5cm}
 \begin{align}
   \label{pyth1}
-  a^2 &= b^2 + b^2 \Leftrightarrow \\
+  a^2 &= b^2 + c^2 \Leftrightarrow \\
   \label{pyth2}
-  a   &= \sqrt{b^2 + b^2}
+  a   &= \sqrt{b^2 + c^2}
 \end{align}
 Pythagoras can be expressed as
 either of equations \ref{pyth1}
@@ -1959,10 +1971,10 @@ makeindex document.idx
   \frametitle{Exercises}
   \vspace{3mm}
   \begin{enumerate}
-    \descitem{New Project:} Create a new project (on Overleaf, GitHub or similar). Make sure that you have a report \LaTeX\ document that builds.
-    \descitem{Tabular Data:} Find some tabular data, place it in a \texttt{tabular} environment, and make it look pretty.
-    \descitem{Formula:} Pick any formula (e.g., the discrete fourier transformation), and express it though \LaTeX\ code.
-    \descitem{Report:} Pick any old report, and port it to \LaTeX. The point is not to go through the whole report, but rather to get a feel of (i) the effort needed to port an old report, and (ii) the perceived typographical quality per effort.
+    \pause \descitem{New Project:} Create a new project (on Overleaf, GitHub or similar). Make sure that you have a report \LaTeX\ document that builds.
+    \pause \descitem{Tabular Data:} Find some tabular data, place it in a \texttt{tabular} environment, and make it look pretty.
+    \pause \descitem{Formula:} Pick any formula (e.g., the discrete fourier transformation), and express it though \LaTeX\ code.
+    \pause \descitem{Report:} Pick any old report, and port it to \LaTeX. The point is not to go through the whole report, but rather to get a feel of (i) the effort needed to port an old report, and (ii) the perceived typographical quality per effort.
   \end{enumerate}
 \end{frame}
 
