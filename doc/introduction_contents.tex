@@ -122,7 +122,7 @@
 \subsection{Styles}
 \begin{frame}[fragile]
   \frametitle{What is \LaTeX? \subpart{Styles}}
-  \vspace{1mm}
+  \vspace{0mm}
   In \LaTeX, contents and presentation are (mostly) separate.
   
   \vspace{5mm}
@@ -430,7 +430,7 @@ lualatex -shell-escape document.tex
 \subsubsection{Structure of Contents}
 \begin{frame}[fragile]
   \frametitle{Overall Structure \subpart{Structure of Contents}}
-  \vspace{3mm}
+  \vspace{1mm}
   The \textsl{main matter} is split into a section tree, with lists of paragraphs as leaves.
   
   \vspace{5mm}
@@ -1066,35 +1066,42 @@ And they can be declared \textcolor{red!27!green}{inline}!
       \node[label,anchor=south] () at (\vectorX, -0.5*\stepY) {\rotatebox{90}{Vector}};
       \node[label,anchor=south] () at (\stylableX, -0.5*\stepY) {\rotatebox{90}{Native}};
       \node[label,anchor=south] () at (\includableX, -0.5*\stepY) {\rotatebox{90}{Includable}};
+      \node[label,anchor=south] () at (\formatX, -0.5*\stepY) {\rotatebox{90}{Format}};
       
+      \pause
       \node[label] () at (\bitmapX, 0*\stepY) {$\times$};
       \node[label] () at (\lossyX, 0*\stepY) {$\times$};
       \node[label] () at (\includableX, 0*\stepY) {$\times$};
       \node[format] () at (\formatX, 0*\stepY) {JPEG};
       
+      \pause
       \node[label] () at (\bitmapX, 1*\stepY) {$\times$};
       \node[label] () at (\includableX, 1*\stepY) {$\times$};
       \node[format] () at (\formatX, 1*\stepY) {PNG};
       
+      \pause
       \node[label] () at (\bitmapX, 2*\stepY) {$\times$};
       \node[label] () at (\vectorX, 2*\stepY) {$\times$};
       \node[format] (svg) at (\formatX, 2*\stepY) {SVG};
       
+      \pause
       \node[label] () at (\bitmapX, 3*\stepY) {$\times$};
       \node[label] () at (\vectorX, 3*\stepY) {$\times$};
       \node[label] () at (\includableX, 3*\stepY) {$\times$};
       \node[format] (pdf) at (\formatX, 3*\stepY) {PDF};
       
+      \pause
+      \draw[dedge] (svg)
+                 --([xshift=-\stepY]svg.east)
+                 --([xshift=-\stepY]pdf.east)
+                 --(pdf);
+      
+      \pause
       \node[label] () at (\bitmapX, 4*\stepY) {$\times$};
       \node[label] () at (\vectorX, 4*\stepY) {$\times$};
       \node[label] () at (\stylableX, 4*\stepY) {$\times$};
       \node[label] () at (\includableX, 4*\stepY) {$\times$};
       \node[format] () at (\formatX, 4*\stepY) {\TikZ};
-      
-      \draw[dedge] (svg)
-                 --([xshift=-\stepY]svg.east)
-                 --([xshift=-\stepY]pdf.east)
-                 --(pdf);
     \end{tikzpicture}
   \end{center}
 \end{frame}
