@@ -436,8 +436,11 @@ The configuration is pulled from the \filename{conf.yaml} file.
 \subsubsection{Result}
 \begin{frame}[fragile]
   \frametitle{Exercise Difficulty \subpart{Result}}
-  \vspace{3mm}
-  
+  \begin{tikzpicture}[remember picture,overlay]
+    \node[anchor=south] () at ([yshift=-3.3cm]current page.south) {
+      \includeBitmap{exercise-difficulty.png}{14cm}
+    };
+  \end{tikzpicture}
 \end{frame}
 
 \subsection{Nametag Generation}
