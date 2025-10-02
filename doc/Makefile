@@ -40,6 +40,10 @@ introduction_presentation.pdf: introduction_presentation.tex introduction_conten
 	lualatex  -shell-escape introduction_presentation.tex
 	lualatex  -shell-escape introduction_presentation.tex
 
+introduction_handouts.pdf: introduction_handouts.tex introduction_contents.tex introduction_shared.tex shared.tex Makefile ${INTRODUCTION_DEPS}
+	lualatex  -shell-escape introduction_handouts.tex
+	lualatex  -shell-escape introduction_handouts.tex
+
 intermediate_presentation.pdf: intermediate_presentation.tex intermediate_contents.tex intermediate_shared.tex shared.tex Makefile ${INTERMEDIATE_DEPS}
 	lualatex  -shell-escape intermediate_presentation.tex
 	lualatex  -shell-escape intermediate_presentation.tex
