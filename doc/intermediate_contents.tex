@@ -695,8 +695,99 @@ lualatex -shell-escape "\newcommand\odenseonly[1]{\#1} \newcommand\sonderborgonl
 \subsubsection{Solution Pipeline}
 \begin{frame}[fragile]
   \frametitle{Figure Narratives \subpart{Solution Pipeline}}
-  \vspace{3mm}
-  
+  \vspace{7mm}
+  \begin{center}
+    \begin{tikzpicture}
+      \newcommand{\dist}[0]{4mm}
+      \newcommand{\groupshift}[0]{-8mm}
+      \newcommand{\angleI}[0]{30} % inner angle
+      \newcommand{\angleO}[0]{60} % outer angle
+      
+      \tikzstyle{arrow} = [thick,->,>=stealth, draw=black]
+      \tikzstyle{box} = [rectangle,thick,draw=black,minimum height=6mm]
+      \tikzstyle{process} = [box, rounded corners=1mm]
+      \tikzstyle{file} = [box]
+      
+      \matrix[column sep=2*\dist] (init) at (current page.center) {
+        \node[process] (inkscape) {Inkscape};
+        &
+        \node[file] (basesvg) {.svg};
+        &
+        \node[process] (script) {script};
+        \\
+      };
+      
+      \matrix[anchor=west, column sep=2*\dist, row sep=\dist] (variants) at ([xshift=2*\dist]init.east) {
+        \node[file] (varIsvg) {.svg};
+        &
+        \node[process] (varIconv) {convert};
+        &
+        \node[file] (varIpdf) {.pdf};
+        \\
+        \node[file] (varIIsvg) {.svg};
+        &
+        \node[process] (varIIconv) {convert};
+        &
+        \node[file] (varIIpdf) {.pdf};
+        \\
+        \node[file] (varIIIsvg) {.svg};
+        &
+        \node[process] (varIIIconv) {convert};
+        &
+        \node[file] (varIIIpdf) {.pdf};
+        \\
+        \node[file] (varIVsvg) {.svg};
+        &
+        \node[process] (varIVconv) {convert};
+        &
+        \node[file] (varIVpdf) {.pdf};
+        \\
+      };
+      
+      \node[file,anchor=west] (main) at ([xshift=2*\dist]variants.east) {main};
+      
+      \draw[arrow] (inkscape) -- (basesvg);
+      \draw[arrow] (basesvg) -- (script);
+      
+      \draw[arrow] (script) to[out=  0+\angleO, in=180] (varIsvg);
+      \draw[arrow] (script) to[out=  0+\angleI, in=180] (varIIsvg);
+      \draw[arrow] (script) to[out=360-\angleI, in=180] (varIIIsvg);
+      \draw[arrow] (script) to[out=360-\angleO, in=180] (varIVsvg);
+      
+      \draw[arrow] (varIsvg)   -- (varIconv);
+      \draw[arrow] (varIIsvg)  -- (varIIconv);
+      \draw[arrow] (varIIIsvg) -- (varIIIconv);
+      \draw[arrow] (varIVsvg)  -- (varIVconv);
+      
+      \draw[arrow] (varIconv)   -- (varIpdf);
+      \draw[arrow] (varIIconv)  -- (varIIpdf);
+      \draw[arrow] (varIIIconv) -- (varIIIpdf);
+      \draw[arrow] (varIVconv)  -- (varIVpdf);
+      
+      \draw[arrow] (varIpdf)   to[out=0, in=180-\angleO] (main);
+      \draw[arrow] (varIIpdf)  to[out=0, in=180-\angleI] (main);
+      \draw[arrow] (varIIIpdf) to[out=0, in=180+\angleI] (main);
+      \draw[arrow] (varIVpdf)  to[out=0, in=180+\angleO] (main);
+      
+      % production
+      \coordinate (prodleft) at ([yshift=\groupshift]varIVpdf.south west);
+      \coordinate (prodright) at ($(prodleft -| main.east)$);
+      \draw[thick] (prodleft) -- (prodright);
+      \node[anchor=north] () at ($(prodleft)!0.5!(prodright)$) {Production};
+      
+      % consumption
+      \coordinate (conright) at ([yshift=\groupshift]varIVsvg.south east);
+      \coordinate (conleft) at ($(prodleft -| script.west)$);
+      \draw[thick] (conleft) -- (conright);
+      \node[anchor=north] () at ($(conleft)!0.5!(conright)$) {Consumption};
+      
+      % design
+      \coordinate (desleft) at ($(prodleft -| inkscape.west)$);
+      \coordinate (desright) at ($(prodleft -| basesvg.east)$);
+      \draw[thick] (desleft) -- (desright);
+      \node[anchor=north] () at ($(desleft)!0.5!(desright)$) {Design};
+    \end{tikzpicture}
+  \end{center}
 \end{frame}
 
 \subsubsection{Drawing with Inkscape}
