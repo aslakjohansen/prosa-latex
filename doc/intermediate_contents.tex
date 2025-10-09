@@ -793,8 +793,11 @@ lualatex -shell-escape "\newcommand\odenseonly[1]{\#1} \newcommand\sonderborgonl
 \subsubsection{Drawing with Inkscape}
 \begin{frame}[fragile]
   \frametitle{Figure Narratives \subpart{Drawing with Inkscape}}
-  \vspace{3mm}
-  
+  \begin{tikzpicture}[remember picture,overlay]
+    \node[anchor=center] () at ([yshift=-5mm]current page.center) {
+      \includeBitmap{inkscape-svg-narrative.png}{13cm}
+    };
+  \end{tikzpicture}
 \end{frame}
 
 \subsubsection{Base File}
