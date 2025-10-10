@@ -857,6 +857,7 @@ lualatex -shell-escape "\newcommand\odenseonly[1]{\#1} \newcommand\sonderborgonl
 \includeSVG{vector5}
   \end{minted}
   
+  \pause
   \vspace{5mm}
   And then have a \textcolor{blue}{\href{https://github.com/aslakjohansen/prosa-latex/blob/main/bin/generate-tex-includes}{script}} crawl through the file inclusion tree of the document to find all references to this macro, and automatically convert each of them from SVG to PDF.
 \end{frame}
