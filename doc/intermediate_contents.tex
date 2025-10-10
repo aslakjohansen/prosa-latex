@@ -859,9 +859,11 @@ lualatex -shell-escape "\newcommand\odenseonly[1]{\#1} \newcommand\sonderborgonl
 \subsubsection{Result}
 \begin{frame}[fragile]
   \frametitle{Figure Narratives \subpart{Result}}
-  \vspace{3mm}
+  \vspace{-14mm}
   \begin{center}
-    \only<0>{\includeSVG{vector0}}\only<1>{\includeSVG{vector1}}\only<2>{\includeSVG{vector2}}\only<3>{\includeSVG{vector3}}\only<4>{\includeSVG{vector4}}\only<5>{\includeSVG{vector5}}
+    \scalebox{2}{
+      \only<0>{\includeSVG{vector0}}\only<1>{\includeSVG{vector1}}\only<2>{\includeSVG{vector2}}\only<3>{\includeSVG{vector3}}\only<4>{\includeSVG{vector4}}\only<5>{\includeSVG{vector5}}
+    }
   \end{center}
 \end{frame}
 
