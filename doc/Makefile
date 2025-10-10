@@ -23,8 +23,6 @@ mrproper: clean
 	rm        *~ *.aux *.log *.nav *.out *.snm *.toc *.vrb *.minted
 
 
-
-
 .intermediate.timestamp: ../bin/generate-tex-includes intermediate_*.tex ./figs/vector0.svg
 	cd .. ; ./bin/generate-tex-includes PDF doc/intermediate_presentation.tex doc
 	touch .intermediate.timestamp
