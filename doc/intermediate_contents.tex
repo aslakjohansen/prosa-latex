@@ -846,7 +846,19 @@ lualatex -shell-escape "\newcommand\odenseonly[1]{\#1} \newcommand\sonderborgonl
 \begin{frame}[fragile]
   \frametitle{Figure Narratives \subpart{Conversion to PDF and Inclusion}}
   \vspace{3mm}
+  This process relies on the following macro definition:
+  \begin{minted}[breaklines]{latex}
+\newcommand{\includegraphics[scale=1.0]{./figs/#1.pdf}}
+  \end{minted}
   
+  \vspace{5mm}
+  In the document text, I can then insert the figure like this:
+  \begin{minted}[breaklines]{latex}
+\includeSVG{vector5}
+  \end{minted}
+  
+  \vspace{5mm}
+  And then have a \textcolor{blue}{\href{https://github.com/aslakjohansen/prosa-latex/blob/main/bin/generate-tex-includes}{script}} crawl through the file inclusion tree of the document to find all references to this macro, and automatically convert each of them from SVG to PDF.
 \end{frame}
 
 \subsubsection{Result}
