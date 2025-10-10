@@ -837,7 +837,9 @@ lualatex -shell-escape "\newcommand\odenseonly[1]{\#1} \newcommand\sonderborgonl
 \begin{frame}[fragile]
   \frametitle{Figure Narratives \subpart{Processing Code}}
   \vspace{3mm}
-  
+  \begin{multicols}{2}
+    \inputminted[fontsize=\tiny]{python}{../bin/process-vector.py}
+  \end{multicols}
 \end{frame}
 
 \subsubsection{Conversion to PDF}
@@ -858,7 +860,9 @@ lualatex -shell-escape "\newcommand\odenseonly[1]{\#1} \newcommand\sonderborgonl
 \begin{frame}[fragile]
   \frametitle{Figure Narratives \subpart{Result}}
   \vspace{3mm}
-  
+  \begin{center}
+    \only<0>{\includeSVG{vector0}}\only<1>{\includeSVG{vector1}}\only<2>{\includeSVG{vector2}}\only<3>{\includeSVG{vector3}}\only<4>{\includeSVG{vector4}}\only<5>{\includeSVG{vector5}}
+  \end{center}
 \end{frame}
 
 % background color post
