@@ -848,7 +848,7 @@ lualatex -shell-escape "\newcommand\odenseonly[1]{\#1} \newcommand\sonderborgonl
   \vspace{3mm}
   This process relies on the following macro definition:
   \begin{minted}[breaklines]{latex}
-\newcommand{\includegraphics[scale=1.0]{./figs/#1.pdf}}
+\newcommand{\includeSVG}[1]{\includegraphics[scale=1.0]{./figs/#1.pdf}}
   \end{minted}
   
   \vspace{5mm}
