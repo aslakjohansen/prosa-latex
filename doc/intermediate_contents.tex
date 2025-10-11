@@ -544,8 +544,21 @@ lualatex -shell-escape "\newcommand\odenseonly[1]{\#1} \newcommand\sonderborgonl
 \subsubsection{Result}
 \begin{frame}[fragile]
   \frametitle{Parameterized Documents \subpart{Result}}
-  \vspace{3mm}
-  
+  \begin{tikzpicture}[remember picture,overlay]
+    \newcommand{\width}[0]{76mm}
+    \newcommand{\dist}[0]{0mm}
+    
+    \matrix[column sep=2*\dist] at (current page.center) {
+      \node[] () {
+        \includegraphics[width=\width]{./figs/oop-naming-sonderborg.png}
+      };
+      &
+      \node[] () {
+        \includegraphics[width=\width]{./figs/oop-naming-odense.png}
+      };
+      \\
+    };
+  \end{tikzpicture}
 \end{frame}
 
 \subsection{Graph Layout}
