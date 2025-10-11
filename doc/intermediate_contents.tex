@@ -936,6 +936,12 @@ lualatex -shell-escape "\newcommand\odenseonly[1]{\#1} \newcommand\sonderborgonl
   
   \vspace{5mm}
   More info: \url{https://katex.org}
+  
+  \begin{tikzpicture}[remember picture,overlay]
+    \node[anchor=south] () at ([yshift=0mm] current page.south) {
+      \includegraphics[width=80mm]{./figs/katex-demo.png}
+    };
+  \end{tikzpicture}
 \end{frame}
 
 % background color post
