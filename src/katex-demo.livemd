@@ -1,0 +1,22 @@
+# KaTeX Demo
+
+## Section
+
+The [Pythagorean theorem](https://en.wikipedia.org/wiki/Pythagorean_theorem) states that $a^2+b^2=c^2$. If we solve for $c$, we get $c = \sqrt{a^2+b^2}$. Lets try to implement that as an anonymous function:
+
+```elixir
+pyth = fn a,b -> :math.sqrt(a*a + b*b) end
+```
+
+And then apply it:
+
+```elixir
+Enum.map(0..10, fn a ->
+  Enum.map(0..10, fn b ->
+      "pyth(#{a}, #{b}) ↦ #{pyth.(a,b)}"   
+    end)
+  end)
+|> List.flatten()
+|> Enum.join("\n")
+|> IO.puts()
+```
