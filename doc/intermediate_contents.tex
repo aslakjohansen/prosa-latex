@@ -301,6 +301,120 @@ The configuration is pulled from the \filename{conf.yaml} file.
   \end{tikzpicture}
 \end{frame}
 
+\subsubsection{Positioning of Rectangles}
+\begin{frame}[fragile]
+  \frametitle{Nodes \subpart{Positioning of Rectangles}}
+  \pause
+  \begin{tikzpicture}[remember picture, overlay]
+    \newcommand{\squaresize}[0]{ 32mm }
+    \newcommand{\pointname}[1]{ \texttt{#1} }
+    
+    \tikzstyle{point}=[
+      circle,
+      draw=purple,
+      fill=purple!5,
+      anchor=center,
+      minimum size=1.2mm,
+      inner sep=0pt,
+      thick,
+    ]
+    \tikzstyle{rect}=[
+      rectangle,
+      draw=black,
+      anchor=center,
+      minimum width=2*\squaresize,
+      minimum height=\squaresize,
+      thick,
+    ]
+    
+    \coordinate (anchor) at (current page.center);
+    
+    \only<3->{
+      \node[rect,anchor=south east] () at (anchor) {
+        \mintinline[fontsize=\tiny]{latex}{\node[rect,anchor=south east] () at (anchor) {};}
+      };
+    }
+    \only<4->{
+      \node[rect,anchor=south west] () at (anchor) {
+        \mintinline[fontsize=\tiny]{latex}{\node[rect,anchor=south west] () at (anchor) {};}
+      };
+    }
+    \only<5->{
+      \node[rect,anchor=north west] () at (anchor) {
+        \mintinline[fontsize=\tiny]{latex}{\node[rect,anchor=north west] () at (anchor) {};}
+      };
+    }
+    \only<6->{
+      \node[rect,anchor=north east] () at (anchor) {
+        \mintinline[fontsize=\tiny]{latex}{\node[rect,anchor=north east] () at (anchor) {};}
+      };
+    }
+    
+    \node[point] () at (anchor) {};
+    
+    \node[anchor=north east] () at (current page.north east) {
+      \mintinline[fontsize=\tiny]{latex}{\coordinate (anchor) at (current page.center);}
+    };
+  \end{tikzpicture}
+\end{frame}
+
+\subsubsection{Positioning of Circles}
+\begin{frame}[fragile]
+  \frametitle{Nodes \subpart{Positioning of Circles}}
+  \pause
+  \begin{tikzpicture}[remember picture, overlay]
+    \newcommand{\squaresize}[0]{ 32mm }
+    \newcommand{\pointname}[1]{ \texttt{#1} }
+    
+    \tikzstyle{point}=[
+      circle,
+      draw=purple,
+      fill=purple!5,
+      anchor=center,
+      minimum size=1.2mm,
+      inner sep=0pt,
+      thick,
+    ]
+    \tikzstyle{circ}=[
+      circle,
+      draw=black,
+      anchor=center,
+      minimum width=2*\squaresize,
+      minimum height=\squaresize,
+      thick,
+    ]
+    
+    \coordinate (anchor) at (current page.center);
+    
+    \only<3->{
+      \node[circ,anchor=south east] () at (anchor) {
+        \mintinline[fontsize=\tiny]{latex}{\node[circ,anchor=south east] () at (anchor) {};}
+      };
+    }
+    \only<4->{
+      \node[circ,anchor=south west] () at (anchor) {
+        \mintinline[fontsize=\tiny]{latex}{\node[circ,anchor=south west] () at (anchor) {};}
+      };
+    }
+    \only<5->{
+      \node[circ,anchor=north west] () at (anchor) {
+        \mintinline[fontsize=\tiny]{latex}{\node[circ,anchor=north west] () at (anchor) {};}
+      };
+    }
+    \only<6->{
+      \node[circ,anchor=north east] () at (anchor) {
+        \mintinline[fontsize=\tiny]{latex}{\node[circ,anchor=north east] () at (anchor) {};}
+      };
+    }
+    
+    \node[point] () at (anchor) {};
+    
+    \node[anchor=north east] () at (current page.north east) {
+      \mintinline[fontsize=\tiny]{latex}{\coordinate (anchor) at (current page.center);}
+    };
+  \end{tikzpicture}
+\end{frame}
+
 \subsection{Paths}
 \begin{frame}[fragile]
   \frametitle{Paths}
