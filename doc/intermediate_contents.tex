@@ -435,6 +435,13 @@ The configuration is pulled from the \filename{conf.yaml} file.
 \node[rectangle,anchor=east] () at ([xshift=-2mm] center) {left};
 \node[rectangle,anchor=west] () at ([xshift= 2mm] center) {right};
   \end{minted}
+  
+  \pause
+  \vspace{5mm}
+  The shift can be in two dimensions:
+  \begin{minted}[fontsize=\normalsize]{latex}
+\node[rectangle] () at ([xshift=2mm,yshift=3cm] center) {translation};
+  \end{minted}
 \end{frame}
 
 \subsection{Paths}
