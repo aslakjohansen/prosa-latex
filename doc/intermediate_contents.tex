@@ -197,6 +197,49 @@ The configuration is pulled from the \filename{conf.yaml} file.
 \begin{frame}[fragile]
   \frametitle{The \envname{tikzpicture} Environment}
   \vspace{3mm}
+  Load \TikZ\ package:
+  \begin{minted}[fontsize=\normalsize]{latex}
+\usepackage{tikz}
+  \end{minted}
+  
+  \pause
+  \vspace{9mm}
+  Then we get access to the \envname{tikzpicture} environment:
+  \vspace{16mm}
+  \begin{minted}[fontsize=\normalsize,escapeinside=||]{latex}
+\begin{tikzpicture}[|\tikzmark{parbefore}|    |\tikzmark{parafter}|]
+|\tikzmark{contents}|
+
+\end{tikzpicture}
+  \end{minted}
+  \begin{tikzpicture}[remember picture]
+    \tikzstyle{arrow} = [thick,->,>=stealth, draw=black]
+    \tikzstyle{box} = [overlay,rectangle,thick,draw=black]
+    \tikzstyle{direction}=[
+      overlay,
+      rectangle,
+      anchor=north west,
+      pattern=north east lines,
+      even odd rule,
+      thick,
+      font=\bfseries,
+      minimum width=\textwidth,
+      minimum height=10.5mm,
+    ]
+    \tikzstyle{contents}=[direction,pattern color=purple!60,draw=purple]
+    
+    \coordinate (par_coord) at ([yshift= 1.1mm] $(pic cs:parbefore)!0.5!(pic cs:parafter)$);
+    
+    \pause
+    \node[box,minimum width=11mm, minimum height=4mm] (par_box)
+      at (par_coord) {};
+    \node[overlay,anchor=south] (par_label)
+      at ([yshift=6mm] par_box.north) {parameters};
+    \draw[overlay, arrow, thick] (par_label) -- (par_box);
+    
+    \pause
+    \node[contents] () at ([yshift=4mm] pic cs:contents) {Contents};
+  \end{tikzpicture}
 \end{frame}
 
 \subsection{Coordinate System}
