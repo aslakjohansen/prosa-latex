@@ -471,9 +471,30 @@ The configuration is pulled from the \filename{conf.yaml} file.
   
   \vspace{5mm}
   Format:
-  \begin{minted}[fontsize=\normalsize]{latex}
-\tikzstyle{dedge} = [thick,->,>=stealth,draw=black]
+  \begin{minted}[fontsize=\normalsize,escapeinside=||]{latex}
+\tikzstyle{|\tikzmark{namebefore}|dedge|\tikzmark{nameafter}|} = [|\tikzmark{rulesbefore}|thick,->,>=stealth,draw=black|\tikzmark{rulesafter}|]
   \end{minted}
+  \begin{tikzpicture}[remember picture]
+    \tikzstyle{arrow} = [thick,->,>=stealth, draw=black]
+    \tikzstyle{box} = [overlay,rectangle,thick,draw=black]
+    
+    \coordinate (name_coord) at ([yshift= 1.1mm] $(pic cs:namebefore)!0.5!(pic cs:nameafter)$);
+    \coordinate (rules_coord) at ([yshift= 1.1mm] $(pic cs:rulesbefore)!0.5!(pic cs:rulesafter)$);
+    
+    \pause
+    \node[box,minimum width=11mm, minimum height=4mm] (name_box)
+      at (name_coord) {};
+    \node[overlay,anchor=north] (name_label)
+      at ([yshift=-6mm] name_box.south) {name};
+    \draw[overlay, arrow, thick] (name_label) -- (name_box);
+    
+    \pause
+    \node[box,minimum width=63mm, minimum height=4mm] (rules_box)
+      at (rules_coord) {};
+    \node[overlay,anchor=north] (rules_label)
+      at ([yshift=-6mm] rules_box.south) {Rules};
+    \draw[overlay, arrow, thick] (rules_label) -- (rules_box);
+  \end{tikzpicture}
 \end{frame}
 
 \subsubsection{Select Rules}
