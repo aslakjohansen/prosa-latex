@@ -536,7 +536,28 @@ The configuration is pulled from the \filename{conf.yaml} file.
 \begin{frame}[fragile]
   \frametitle{Fancy Stuff}
   \vspace{3mm}
+  Note that most of the following examples require several \TikZ\ libraries to be loaded.
   
+  \pause
+  \vspace{5mm}
+  The set of libraries I load is ever expanding:
+  \begin{minted}[fontsize=\normalsize]{latex}
+\usetikzlibrary[positioning]
+\usetikzlibrary[fit]
+\usetikzlibrary{patterns}
+\usetikzlibrary{patterns.meta}
+\usetikzlibrary{shapes.geometric}
+\usetikzlibrary{shapes.arrows}
+\usetikzlibrary{shapes}
+\usetikzlibrary{arrows.meta}
+\usetikzlibrary{calc}
+\usetikzlibrary{matrix}
+\usetikzlibrary{tikzmark}
+\usetikzlibrary{datavisualization}
+\usetikzlibrary{datavisualization.formats.functions}
+\usetikzlibrary{tikzmark}
+\usetikzlibrary{overlay-beamer-styles}
+  \end{minted}
 \end{frame}
 
 \subsubsection{Matrix Alignment}
