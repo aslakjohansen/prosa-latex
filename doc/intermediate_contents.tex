@@ -613,8 +613,44 @@ The configuration is pulled from the \filename{conf.yaml} file.
 \subsubsection{Point Interpolation}
 \begin{frame}[fragile]
   \frametitle{Fancy Stuff \subpart{Point Interpolation}}
-  \vspace{3mm}
-  
+  \begin{tikzpicture}[remember picture,overlay]
+    \newcommand{\height}[0]{28mm}
+    \newcommand{\dist}[0]{5mm}
+    
+    \tikzstyle{dedge} = [thick,->,>=stealth,draw=black]
+    
+    \node[rectangle,thick,anchor=east,draw,minimum height=\height] (code) at ([xshift=-\dist]current page.center) {
+      \begin{minipage}{6cm}
+        \begin{minted}[fontsize=\footnotesize]{latex}
+\node[point] (a)
+  at ([xshift=-2cm]anchor) {$N_1$};
+\node[point] (b)
+  at ([xshift= 2cm]anchor) {$N_2$};
+\node[point] (c)
+  at ($(a)!0.5!(b)$) {$N_{1.5}$};
+        \end{minted}
+      \end{minipage}
+    };
+    
+    \node[rectangle,thick,anchor=west,draw,minimum height=\height,minimum width=6.2cm] (output) at ([xshift=\dist]current page.center) {};
+    
+    \draw[dedge] (code)->(output);
+    
+    % rhs
+    \tikzstyle{point}=[
+      circle,
+      draw=purple,
+      fill=purple!5,
+      thick,
+      minimum height=0pt,
+      anchor=center,
+      minimum size=1.1cm,
+    ]
+    \coordinate (anchor) at (output.center);
+    \node[point] (a) at ([xshift=-2cm]anchor) {$N_1$};
+    \node[point] (b) at ([xshift= 2cm]anchor) {$N_2$};
+    \node[point] (c) at ($(a)!0.5!(b)$) {$N_{1.5}$};
+  \end{tikzpicture}
 \end{frame}
 
 \subsubsection{Projection}
