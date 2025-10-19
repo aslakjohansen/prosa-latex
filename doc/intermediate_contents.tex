@@ -51,16 +51,23 @@
 \begin{frame}[fragile]
   \frametitle{Keyword Markup}
   \vspace{3mm}
-  \textbf{Pattern:}
+  \textbf{Pattern:} I want to place certain words in the index, and make it clear that they are special.
   
   \vspace{5mm}
   \textbf{Definition:}
+  \begin{minted}[breaklines]{latex}
+\newcommand{\idx}[2]{\index{#2}\textcolor{purple}{#1}}
+  \end{minted}
   
   \vspace{5mm}
   \textbf{Use:}
+  \begin{minted}[breaklines]{latex}
+We need to fit this to the \idx{tradeoff}{Tradeoff}.
+  \end{minted}
   
   \vspace{5mm}
-  \textbf{Appearance:}
+  \textbf{Appearance:} \\
+  We need to fit this to the \idx{tradeoff}{Tradeoff}.
 \end{frame}
 
 \subsection{Highlights}
