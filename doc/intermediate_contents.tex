@@ -97,21 +97,31 @@ The configuration is pulled from the \filename{conf.yaml} file.
 \subsection{Description Lists}
 \begin{frame}[fragile]
   \frametitle{Description Lists}
-  \vspace{3mm}
-  \textbf{Pattern:}
+  \vspace{0mm}
+  \textbf{Pattern:} List items often need a header that is emphasized over the rest of the item text.
   
-  \vspace{5mm}
+  \vspace{3mm}
   \textbf{Definition:}
   \begin{minted}[breaklines]{latex}
 \newcommand{\textdesc}[1]{ \textit{\textbf{#1}} }
 \newcommand{\descitem}[1]{ \item \textdesc{#1} }
   \end{minted}
   
-  \vspace{5mm}
+  \vspace{2mm}
   \textbf{Use:}
+  \begin{minted}[breaklines]{latex}
+\begin{itemize}
+  \descitem{Bonobo} An intelligent ape.
+  \descitem{Gibbon} An agile ape.
+\end{itemize}
+  \end{minted}
   
-  \vspace{5mm}
+  \vspace{2mm}
   \textbf{Appearance:}
+  \begin{itemize}
+    \descitem{Bonobo} An intelligent ape.
+    \descitem{Gibbon} An agile ape.
+  \end{itemize}
 \end{frame}
 
 \subsection{Inspirational Quotes}
