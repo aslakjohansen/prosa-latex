@@ -114,6 +114,22 @@
     \end{center}
 }
 
+\newenvironment{tbox}[2][0.9]
+{
+  \begin{center}
+    \begin{tabular}{|p{#1\textwidth}|}
+      \hline
+      \cellcolor[gray]{0.9}
+      \textbf{#2} \\
+      \hline
+      \cellcolor[gray]{0.95}
+}{
+      \\
+      \hline
+    \end{tabular}
+  \end{center}
+}
+
 %% bypass highlighting of syntax errors in minted
 %\renewcommand{\fcolorbox}[4][]{#4}
 
