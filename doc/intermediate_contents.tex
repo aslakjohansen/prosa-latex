@@ -281,6 +281,16 @@ The configuration is pulled from the \filename{conf.yaml} file.
 \begin{frame}[fragile]
   \frametitle{Nodes \subpart{The Page}}
   \vspace{3mm}
+  Within the \envname{tikzpicture} environment one node is defined: \say{\texttt{current page}}.
+  
+  \vspace{5mm}
+  This node is completely transparent and has the shape and position of the \textsl{current page}.
+  
+  \vspace{5mm}
+  Often, it makes sense to use this node of positioning rather than relying on the current location on the page.
+  \begin{itemize}
+    \item This makes the positioning absolute (relative to the page) rather than relative (relative to the cursor position).
+  \end{itemize}
 \end{frame}
 
 \subsubsection{Anchor Points}
