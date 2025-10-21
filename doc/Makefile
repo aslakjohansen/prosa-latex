@@ -1,6 +1,8 @@
 TARGETS = \
 	introduction_presentation.pdf \
+	introduction_handouts.pdf \
 	intermediate_presentation.pdf \
+	intermediate_handouts.pdf \
 
 INTRODUCTION_DEPS = \
 	./figs/vector.pdf \
@@ -55,4 +57,8 @@ introduction_handouts.pdf: introduction_handouts.tex introduction_contents.tex i
 intermediate_presentation.pdf: intermediate_presentation.tex intermediate_contents.tex intermediate_*.tex shared.tex Makefile ${INTERMEDIATE_DEPS}
 	lualatex  -shell-escape intermediate_presentation.tex
 	lualatex  -shell-escape intermediate_presentation.tex
+
+intermediate_handouts.pdf: intermediate_handouts.tex intermediate_contents.tex intermediate_*.tex shared.tex Makefile ${INTERMEDIATE_DEPS}
+	lualatex  -shell-escape intermediate_handouts.tex
+	lualatex  -shell-escape intermediate_handouts.tex
 
