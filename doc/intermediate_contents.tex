@@ -556,7 +556,21 @@ The configuration is pulled from the \filename{conf.yaml} file.
 \begin{frame}[fragile]
   \frametitle{Paths}
   \vspace{3mm}
+  A \TikZ\ path is tightly related to the notion of a path that we know from graph theory.
   
+  \pause
+  \vspace{5mm}
+  A \TikZ\ path is a sequence of edges, when source of one edge is the same as the destination of the following edge.
+  
+  \vspace{5mm}
+  The individual edges in a path can be drawn according to different rulesets:
+  \begin{itemize}
+    \item Straight lines.
+    \item Curves.
+  \end{itemize}
+  
+  \vspace{5mm}
+  All edges in a path follow the same styling.
 \end{frame}
 
 \subsubsection{Node vs Points}
@@ -939,6 +953,7 @@ The configuration is pulled from the \filename{conf.yaml} file.
   \pause
   \vspace{5mm}
   The set of libraries I load is ever expanding:
+  \pause
   \begin{minted}[fontsize=\normalsize]{latex}
 \usetikzlibrary[positioning]
 \usetikzlibrary[fit]
@@ -1486,7 +1501,7 @@ lualatex -shell-escape "\newcommand\odenseonly[1]{\#1} \newcommand\sonderborgonl
     \item Define regular expressions for matching relevant lines and extracting needed values.
     \item Parse GraphML file using the regular expressions.
           \\
-          \textbf{Note:} This is obviously \underline{so} the wrong approach \ldots but it works.
+          \textbf{Note:} This is obviously \underline{so} the wrong approach \ldots\ but it works.
     \item \label{enum:layout:scaler} Find min and max positions on both the x and y axes, and use these to define scaling functions.
     \item Make a string containing \TikZ code
       \begin{enumerate}
