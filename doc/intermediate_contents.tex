@@ -66,9 +66,12 @@
 We need to fit this to the \idx{tradeoff}{Tradeoff}.
   \end{minted}
   
+  \pause
   \vspace{5mm}
   \textbf{Appearance:} \\
   We need to fit this to the \idx{tradeoff}{Tradeoff}.
+  \\\\
+  \textsl{(and an entry in the index)}
 \end{frame}
 
 \subsection{Highlights}
@@ -90,6 +93,7 @@ We need to fit this to the \idx{tradeoff}{Tradeoff}.
 The configuration is pulled from the \filename{conf.yaml} file.
   \end{minted}
   
+  \pause
   \vspace{5mm}
   \textbf{Appearance:}
   \\
@@ -119,6 +123,7 @@ The configuration is pulled from the \filename{conf.yaml} file.
 \end{itemize}
   \end{minted}
   
+  \pause
   \vspace{2mm}
   \textbf{Appearance:}
   \begin{itemize}
@@ -163,6 +168,7 @@ The configuration is pulled from the \filename{conf.yaml} file.
 \end{inspiration}
   \end{minted}
   
+  \pause
   \vspace{5mm}
   \textbf{Appearance:}
   \begin{inspiration}{Jane Goodall}
@@ -208,6 +214,7 @@ The configuration is pulled from the \filename{conf.yaml} file.
 \end{tbox}
   \end{minted}
   
+  \pause
   \vspace{5mm}
   \textbf{Appearance:}
   \begin{tbox}{Intuition}
@@ -287,6 +294,7 @@ The configuration is pulled from the \filename{conf.yaml} file.
 \subsection{Coordinate System}
 \begin{frame}[fragile]
   \frametitle{Coordinate System}
+  \pause
   \vspace{3mm}
   \begin{center}
     \begin{tikzpicture}[]
@@ -314,25 +322,8 @@ The configuration is pulled from the \filename{conf.yaml} file.
     \item This material is placed at the \textsl{anchor point} of the node.
     \item A shape can be drawn around it: circle, rectangle, diamond \ldots
 %    \item The shape itself is drawn according to a \textsl{style}.
-    \item The inside of that shape can be filled with a color or patters.
+    \item The inside of that shape can be filled with a color or a pattern.
     \item All of this is \textsl{drawn} according to a \textsl{style}.
-  \end{itemize}
-\end{frame}
-
-\subsubsection{The Page}
-\begin{frame}[fragile]
-  \frametitle{Nodes \subpart{The Page}}
-  \vspace{3mm}
-  Within the \envname{tikzpicture} environment one node is defined: \say{\texttt{current page}}.
-  
-  \vspace{5mm}
-  This node is completely transparent and has the shape and position of the \textsl{current page}.
-  
-  \pause
-  \vspace{5mm}
-  Often, it makes sense to use this node of positioning rather than relying on the current location on the page.
-  \begin{itemize}
-    \item This makes the positioning absolute (relative to the page) rather than relative (relative to the cursor position).
   \end{itemize}
 \end{frame}
 
@@ -523,6 +514,23 @@ The configuration is pulled from the \filename{conf.yaml} file.
   \end{tikzpicture}
 \end{frame}
 
+\subsubsection{The Page}
+\begin{frame}[fragile]
+  \frametitle{Nodes \subpart{The Page}}
+  \vspace{3mm}
+  Within the \envname{tikzpicture} environment one node is defined: \say{\texttt{current page}}.
+  
+  \vspace{5mm}
+  This node is completely transparent and has the shape and position of the \textsl{current page}.
+  
+  \pause
+  \vspace{5mm}
+  Often, it makes sense to use this node of positioning rather than relying on the current location on the page.
+  \begin{itemize}
+    \item This makes the positioning absolute (relative to the page) rather than relative (relative to the cursor position).
+  \end{itemize}
+\end{frame}
+
 \subsection{Coordinates}
 \begin{frame}[fragile]
   \frametitle{Coordinates}
@@ -560,12 +568,13 @@ The configuration is pulled from the \filename{conf.yaml} file.
   
   \pause
   \vspace{5mm}
-  A \TikZ\ path is a sequence of edges, when source of one edge is the same as the destination of the following edge.
+  A \TikZ\ path is a sequence of edges, when destination of one edge is the same as the source of the following edge.
   
   \vspace{5mm}
   The individual edges in a path can be drawn according to different rulesets:
   \begin{itemize}
     \item Straight lines.
+    \item 90$^\circ$ bend lines.
     \item Curves.
   \end{itemize}
   
@@ -1171,9 +1180,11 @@ The configuration is pulled from the \filename{conf.yaml} file.
 \subsection{Table Heatmaps}
 \begin{frame}[fragile]
   \frametitle{Table Heatmaps}
+  \pause
   \vspace{3mm}
   A heatmap is a form of visualization whereby the values of the cells of a grid is illustrated by some gradient of colors.
   
+  \pause
   \vspace{5mm}
   In this section we will look at one application:
   
@@ -1181,6 +1192,7 @@ The configuration is pulled from the \filename{conf.yaml} file.
     \textsl{We are faced with a choice of data structures. Either we use a list or we use a dictionary (aka map). We will be doing a lot of insertions and want to see how fast each of these operations are, and how well they scale.}
   \end{center}
   
+  \pause
   \vspace{5mm}
   \textbf{Note:} In reality this particular problem is likely better solved by looking up a textbook, but it will serve nicely as an example of a type of problem that we might face.
 \end{frame}
@@ -1223,6 +1235,7 @@ The configuration is pulled from the \filename{conf.yaml} file.
   \vspace{3mm}
   Whenever I change \filename{code.py} or \filename{process.py}, the build system will redo the steps necessary to make the resulting PDF reflect that change.
   
+  \pause
   \vspace{5mm}
   That means:
   \begin{itemize}
@@ -1235,12 +1248,14 @@ The configuration is pulled from the \filename{conf.yaml} file.
 \subsection{Exercise Difficulty}
 \begin{frame}[fragile]
   \frametitle{Exercise Difficulty}
+  \pause
   \vspace{3mm}
-  You are making a book. Each chapter ends with a number of exercises.
+  You are writing a book. Each chapter ends with a number of exercises.
   
   \vspace{5mm}
   You want to score each exercise of two different parameters so that the reader can get a good impression of what they are getting themselves into.
   
+  \pause
   \vspace{5mm}
   You could hardcode this in every single exercise, but that would be
   \begin{itemize}
@@ -1252,6 +1267,7 @@ The configuration is pulled from the \filename{conf.yaml} file.
 \subsubsection{Solution}
 \begin{frame}[fragile]
   \frametitle{Exercise Difficulty \subpart{Solution}}
+  \pause
   \vspace{3mm}
   First, introduce directory structure:
   \begin{itemize}
@@ -1260,8 +1276,9 @@ The configuration is pulled from the \filename{conf.yaml} file.
     \item At the last level we have a \filename{question.tex}, a \filename{answer.tex} and a \filename{meta.yaml} (with the difficulties).
   \end{itemize}
   
+  \pause
   \vspace{5mm}
-  Next, we have a script that processes that part of the filesystem and produces an exercise file per chapter, that is then included in the main document.
+  Next, we write a script that processes that part of the filesystem and produces an exercise file per chapter. Those exercise files are then included in the main document.
   
   \vspace{5mm}
   Now that we know \TikZ, and we have everything available to our script, we might as well make it pretty \ldots
@@ -1280,18 +1297,23 @@ The configuration is pulled from the \filename{conf.yaml} file.
 \subsection{Nametag Generation}
 \begin{frame}[fragile]
   \frametitle{Nametag Generation}
+  \pause
   \vspace{3mm}
   You got a spreadsheet with 200+ registrations for a conference, and you need to produce nametags for everyone.
   
+  \pause
   \vspace{5mm}
   Participants have registered for a subset of the planned events which are spread out throughout the course of a (work)week.
   
+  \pause
   \vspace{5mm}
   The information that needs to find their way to each individual nametag is spread out across 60+ columns, and the mapping is far from clean.
   
+  \pause
   \vspace{5mm}
   A reference to the full conference program should be placed on each nametag.
   
+  \pause
   \vspace{5mm}
   You have logos for the conference and sponsors.
 \end{frame}
@@ -1300,6 +1322,7 @@ The configuration is pulled from the \filename{conf.yaml} file.
 \begin{frame}[fragile]
   \frametitle{Nametag Generation \subpart{Solution}}
   \vspace{3mm}
+  Write a script that loads the spreadsheet, crunches the data and writes a \filename{.tex} file that makes use of a set of definitions.
   
   \vspace{5mm}
   Source: \url{https://github.com/aslakjohansen/icsa25-nametag}
@@ -1317,6 +1340,7 @@ The configuration is pulled from the \filename{conf.yaml} file.
 \subsection{Parameterized Documents}
 \begin{frame}[fragile]
   \frametitle{Parameterized Documents}
+  \pause
   \vspace{2mm}
   You need to produce a large number (\textcolor{teal}{$n$}) of documents that has a lot in common.
   
@@ -1327,7 +1351,7 @@ The configuration is pulled from the \filename{conf.yaml} file.
   You already have one file with document-specific contents. So, \textcolor{teal}{$n$} files here.
   
   \vspace{5mm}
-  Some contents is the same. So, \textcolor{teal}{$1$} file here.
+  Some content is the same. So, \textcolor{teal}{$1$} file here.
   
   \vspace{5mm}
   The \textsl{naive} solution is to then have \textcolor{teal}{$n$} more files, essentially doing:
@@ -1378,6 +1402,7 @@ lualatex -shell-escape "\newcommand\odenseonly[1]{\#1} \newcommand\sonderborgonl
 \subsubsection{Result}
 \begin{frame}[fragile]
   \frametitle{Parameterized Documents \subpart{Result}}
+  \pause
   \begin{tikzpicture}[remember picture,overlay]
     \newcommand{\width}[0]{76mm}
     \newcommand{\dist}[0]{0mm}
@@ -1398,6 +1423,7 @@ lualatex -shell-escape "\newcommand\odenseonly[1]{\#1} \newcommand\sonderborgonl
 \subsection{Graph Layout}
 \begin{frame}[fragile]
   \frametitle{Graph Layout}
+  \pause
   \vspace{3mm}
   You have to include a visual representation of a graph.
   
@@ -1407,6 +1433,7 @@ lualatex -shell-escape "\newcommand\odenseonly[1]{\#1} \newcommand\sonderborgonl
   \vspace{5mm}
   It has a significant number of nodes and connections. This makes the job of layouting the graph non-trivial. Manual layouting is likely to have horrible results.
   
+  \pause
   \vspace{5mm}
   The \textbf{yEd} program is quite good at layouting and can work with XML files.
 \end{frame}
@@ -1520,6 +1547,7 @@ lualatex -shell-escape "\newcommand\odenseonly[1]{\#1} \newcommand\sonderborgonl
 \subsubsection{Result}
 \begin{frame}[fragile]
   \frametitle{Graph Layout \subpart{Result}}
+  \pause
   \vspace{12mm}
   \input{figs/sdi.tex}
 \end{frame}
@@ -1527,6 +1555,7 @@ lualatex -shell-escape "\newcommand\odenseonly[1]{\#1} \newcommand\sonderborgonl
 \subsection{Figure Narratives}
 \begin{frame}[fragile]
   \frametitle{Figure Narratives}
+  \pause
   \vspace{3mm}
   You have to make a presentation where:
   \begin{itemize}
