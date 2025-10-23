@@ -104,7 +104,7 @@ The configuration is pulled from the \filename{conf.yaml} file.
 \begin{frame}[fragile]
   \frametitle{Description Lists}
   \vspace{0mm}
-  \textbf{Pattern:} List items often need a header that is emphasized over the rest of the item text.
+  \textbf{Pattern:} List items often need a header that stands out over the rest of the item text.
   
   \pause
   \vspace{3mm}
@@ -119,7 +119,7 @@ The configuration is pulled from the \filename{conf.yaml} file.
   \begin{minted}[breaklines]{latex}
 \begin{itemize}
   \descitem{Bonobo} An intelligent ape.
-  \descitem{Gibbon} An agile ape.
+  \descitem{Gibbon} An agile ape that is less intelligent than the \textdesc{Bonobo}.
 \end{itemize}
   \end{minted}
   
@@ -128,7 +128,7 @@ The configuration is pulled from the \filename{conf.yaml} file.
   \textbf{Appearance:}
   \begin{itemize}
     \descitem{Bonobo} An intelligent ape.
-    \descitem{Gibbon} An agile ape.
+    \descitem{Gibbon} An agile ape that is less intelligent than the \textdesc{Bonobo}.
   \end{itemize}
 \end{frame}
 
@@ -291,6 +291,17 @@ The configuration is pulled from the \filename{conf.yaml} file.
   \end{tikzpicture}
 \end{frame}
 
+\subsection{Parameters}
+\begin{frame}[fragile]
+  \frametitle{Parameters}
+  \pause
+  \vspace{5mm}
+  The \say{\texttt{remember picture}} parameter allows the \envname{tikzpicture} environment to reference the absolute position of specific points (like nodes or coordinates) on the page.
+  
+  \vspace{7mm}
+  The \say{\texttt{overlay}} parameter makes \LaTeX\ treat the resulting \envname{tikzpicture} environment as having zero size, thus essentially bypassing the layout system.
+\end{frame}
+
 \subsection{Coordinate System}
 \begin{frame}[fragile]
   \frametitle{Coordinate System}
@@ -309,6 +320,7 @@ The configuration is pulled from the \filename{conf.yaml} file.
 \subsection{Nodes}
 \begin{frame}[fragile]
   \frametitle{Nodes}
+  \pause
   \vspace{3mm}
   A \textsl{node} is something that you can place at a specific position.
   
@@ -517,6 +529,7 @@ The configuration is pulled from the \filename{conf.yaml} file.
 \subsubsection{The Page}
 \begin{frame}[fragile]
   \frametitle{Nodes \subpart{The Page}}
+  \pause
   \vspace{3mm}
   Within the \envname{tikzpicture} environment one node is defined: \say{\texttt{current page}}.
   
@@ -525,7 +538,7 @@ The configuration is pulled from the \filename{conf.yaml} file.
   
   \pause
   \vspace{5mm}
-  Often, it makes sense to use this node of positioning rather than relying on the current location on the page.
+  Often, it makes sense to use this node for positioning rather than relying on the current location on the page.
   \begin{itemize}
     \item This makes the positioning absolute (relative to the page) rather than relative (relative to the cursor position).
   \end{itemize}
@@ -534,6 +547,7 @@ The configuration is pulled from the \filename{conf.yaml} file.
 \subsection{Coordinates}
 \begin{frame}[fragile]
   \frametitle{Coordinates}
+  \pause
   \vspace{3mm}
   A coordinate is a convenience construct. It allows you to define a coordinate without a node.
   
@@ -563,6 +577,7 @@ The configuration is pulled from the \filename{conf.yaml} file.
 \subsection{Paths}
 \begin{frame}[fragile]
   \frametitle{Paths}
+  \pause
   \vspace{3mm}
   A \TikZ\ path is tightly related to the notion of a path that we know from graph theory.
   
@@ -765,11 +780,12 @@ The configuration is pulled from the \filename{conf.yaml} file.
 \subsection{Styles}
 \begin{frame}[fragile]
   \frametitle{Styles}
+  \pause
   \vspace{3mm}
   Each node and path is drawn according to a sequence of style rules.
   
   \vspace{5mm}
-  Later rules override earlier rules
+  Later rules override earlier rules.
   
   \vspace{5mm}
   We can define shorthands for sequences of rules, and these may refer to other such shorthands.
@@ -1232,7 +1248,11 @@ The configuration is pulled from the \filename{conf.yaml} file.
 \subsubsection{Takeaways}
 \begin{frame}[fragile]
   \frametitle{Table Heatmaps \subpart{Takeaways}}
+  \pause
   \vspace{3mm}
+  That code can be automatically included in my report by my build system.
+  
+  \vspace{5mm}
   Whenever I change \filename{code.py} or \filename{process.py}, the build system will redo the steps necessary to make the resulting PDF reflect that change.
   
   \pause
@@ -1272,7 +1292,7 @@ The configuration is pulled from the \filename{conf.yaml} file.
   First, introduce directory structure:
   \begin{itemize}
     \item Chapter name at the top level with some sort of machine readable index file (e.g., YAML)
-    \item Exercise name at the next level
+    \item Exercise name at the next level.
     \item At the last level we have a \filename{question.tex}, a \filename{answer.tex} and a \filename{meta.yaml} (with the difficulties).
   \end{itemize}
   
@@ -1325,7 +1345,7 @@ The configuration is pulled from the \filename{conf.yaml} file.
   Write a script that loads the spreadsheet, crunches the data and writes a \filename{.tex} file that makes use of a set of definitions.
   
   \vspace{5mm}
-  Source: \url{https://github.com/aslakjohansen/icsa25-nametag}
+  Source: \textcolor{blue}{\url{https://github.com/aslakjohansen/icsa25-nametag}}
 \end{frame}
 
 \subsubsection{Result}
@@ -1525,12 +1545,12 @@ lualatex -shell-escape "\newcommand\odenseonly[1]{\#1} \newcommand\sonderborgonl
   \frametitle{Graph Layout \subpart{Processing Code}}
   \vspace{3mm}
   \begin{enumerate}
-    \item Define regular expressions for matching relevant lines and extracting needed values.
-    \item Parse GraphML file using the regular expressions.
+    \pause \item Define regular expressions for matching relevant lines and extracting needed values.
+    \pause \item Parse GraphML file using the regular expressions.
           \\
-          \textbf{Note:} This is obviously \underline{so} the wrong approach \ldots\ but it works.
-    \item \label{enum:layout:scaler} Find min and max positions on both the x and y axes, and use these to define scaling functions.
-    \item Make a string containing \TikZ code
+          \pause \textbf{Note:} This is obviously \underline{so} the wrong approach \ldots\ but it works.
+    \pause \item \label{enum:layout:scaler} Find min and max positions on both the x and y axes, and use these to define scaling functions.
+    \pause \item Make a string containing \TikZ code
       \begin{enumerate}
         \item Add definitions of styles.
         \item Add code for each node.
@@ -1540,7 +1560,7 @@ lualatex -shell-escape "\newcommand\odenseonly[1]{\#1} \newcommand\sonderborgonl
           \end{itemize}
         \item Add code for each edge.
       \end{enumerate}
-    \item Save that string to a file.
+    \pause \item Save that string to a file.
   \end{enumerate}
 \end{frame}
 
