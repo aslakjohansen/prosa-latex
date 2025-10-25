@@ -65,6 +65,7 @@
   \begin{minted}[breaklines,escapeinside=||]{latex}
 We need to fit this to the \idx{|\tikzmark{useAbefore}|tradeoff|\tikzmark{useAafter}|}{|\tikzmark{useBbefore}|Tradeoff|\tikzmark{useBafter}|}.
   \end{minted}
+  \pause
   \begin{tikzpicture}[remember picture]
     \tikzstyle{arrow} = [thick,->,>=stealth, draw=black]
     \tikzstyle{box} = [overlay,rectangle,thick,draw=black]
@@ -96,15 +97,25 @@ We need to fit this to the \idx{|\tikzmark{useAbefore}|tradeoff|\tikzmark{useAaf
   \pause
   \vspace{5mm}
   \textbf{Definition:}
-  \begin{minted}[breaklines]{latex}
-\newcommand{\filename}[1]{ \textcolor{purple}{\texttt{#1}} }
+  \begin{minted}[breaklines,escapeinside=||]{latex}
+\newcommand{\filename}[1]{ \textcolor{purple}{\texttt{|\tikzmark{defbefore}|#1|\tikzmark{defafter}|}} }
   \end{minted}
   
   \vspace{5mm}
   \textbf{Use:}
-  \begin{minted}[breaklines]{latex}
-The configuration is pulled from the \filename{conf.yaml} file.
+  \begin{minted}[breaklines,escapeinside=||]{latex}
+The configuration is pulled from the \filename{|\tikzmark{usebefore}|conf.yaml|\tikzmark{useafter}|} file.
   \end{minted}
+  \pause
+  \begin{tikzpicture}[remember picture]
+    \tikzstyle{arrow} = [thick,->,>=stealth, draw=black]
+    \tikzstyle{box} = [overlay,rectangle,thick,draw=black]
+    
+    \coordinate (def_coord) at ([yshift=-1.5mm] $(pic cs:defbefore)!0.5!(pic cs:defafter)$);
+    \coordinate (use_coord) at ([yshift= 3mm]   $(pic cs:usebefore)!0.5!(pic cs:useafter)$);
+    
+    \draw[overlay, arrow, thick] (def_coord) |- ($(def_coord)!0.5!(use_coord)$) -| (use_coord);
+  \end{tikzpicture}
   
   \pause
   \vspace{5mm}
@@ -122,10 +133,21 @@ The configuration is pulled from the \filename{conf.yaml} file.
   \pause
   \vspace{3mm}
   \textbf{Definition:}
-  \begin{minted}[breaklines]{latex}
-\newcommand{\textdesc}[1]{ \textit{\textbf{#1}} }
-\newcommand{\descitem}[1]{ \item \textdesc{#1} }
+  \begin{minted}[breaklines,escapeinside=||]{latex}
+\newcommand{|\tikzmark{defbefore}|\textdesc|\tikzmark{defafter}|}[1]{ \textit{\textbf{#1}} }|\tikzmark{eol}|
+\newcommand{\descitem}[1]{ \item \|\tikzmark{usebefore}|textdesc|\tikzmark{useafter}|{#1} }
   \end{minted}
+  \pause
+  \begin{tikzpicture}[remember picture]
+    \tikzstyle{arrow} = [thick,->,>=stealth, draw=black]
+    \tikzstyle{box} = [overlay,rectangle,thick,draw=black]
+    
+    \coordinate (def_coord) at ([yshift= 3mm] $(pic cs:defbefore)!0.5!(pic cs:defafter)$);
+    \coordinate (use_coord) at ([yshift=-1.5mm]   $(pic cs:usebefore)!0.5!(pic cs:useafter)$);
+    \coordinate (eol_coord) at ([xshift= 3mm]   pic cs:eol);
+    
+    \draw[overlay, arrow, thick] (use_coord) -- ([yshift=-3mm]use_coord) -| (eol_coord) |- ([yshift=3mm]def_coord) -- (def_coord);
+  \end{tikzpicture}
   
   \vspace{2mm}
   \textbf{Use:}
