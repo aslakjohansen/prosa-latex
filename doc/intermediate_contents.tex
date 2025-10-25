@@ -56,22 +56,35 @@
   \pause
   \vspace{5mm}
   \textbf{Definition:}
-  \begin{minted}[breaklines]{latex}
-\newcommand{\idx}[2]{\index{#2}\textcolor{purple}{#1}}
+  \begin{minted}[breaklines,escapeinside=||]{latex}
+\newcommand{\idx}[2]{\index{|\tikzmark{defAbefore}|#2|\tikzmark{defAafter}|}\textcolor{purple}{|\tikzmark{defBbefore}|#1|\tikzmark{defBafter}|}}|\tikzmark{eol}|
   \end{minted}
   
   \vspace{5mm}
   \textbf{Use:}
-  \begin{minted}[breaklines]{latex}
-We need to fit this to the \idx{tradeoff}{Tradeoff}.
+  \begin{minted}[breaklines,escapeinside=||]{latex}
+We need to fit this to the \idx{|\tikzmark{useAbefore}|tradeoff|\tikzmark{useAafter}|}{|\tikzmark{useBbefore}|Tradeoff|\tikzmark{useBafter}|}.
   \end{minted}
+  \begin{tikzpicture}[remember picture]
+    \tikzstyle{arrow} = [thick,->,>=stealth, draw=black]
+    \tikzstyle{box} = [overlay,rectangle,thick,draw=black]
+    
+    \coordinate (defA_coord) at ([yshift=-1.5mm] $(pic cs:defAbefore)!0.5!(pic cs:defAafter)$);
+    \coordinate (defB_coord) at ([yshift= 3mm]   $(pic cs:defBbefore)!0.5!(pic cs:defBafter)$);
+    \coordinate (useA_coord) at ([yshift=-1.5mm] $(pic cs:useAbefore)!0.5!(pic cs:useAafter)$);
+    \coordinate (useB_coord) at ([yshift= 3mm]   $(pic cs:useBbefore)!0.5!(pic cs:useBafter)$);
+    \coordinate (eol_coord)  at ([xshift= 3mm]   pic cs:eol);
+    
+    \draw[overlay, arrow, thick] (defA_coord) |- ($(defA_coord)!0.5!(useB_coord)$) -| (useB_coord);
+    \draw[overlay, arrow, thick] (defB_coord) -- ([yshift=3mm]defB_coord) -| (eol_coord) |- ([yshift=-3mm]useA_coord) -- (useA_coord);
+  \end{tikzpicture}
   
   \pause
   \vspace{5mm}
   \textbf{Appearance:} \\
   We need to fit this to the \idx{tradeoff}{Tradeoff}.
   \\\\
-  \textsl{(and an entry in the index)}
+  \textsl{(and an entry in the index for \say{Tradeoff})}
 \end{frame}
 
 \subsection{Highlights}
