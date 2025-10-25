@@ -57,24 +57,24 @@
   \vspace{5mm}
   \textbf{Definition:}
   \begin{minted}[breaklines,escapeinside=||]{latex}
-\newcommand{\idx}[2]{\index{|\tikzmark{defAbefore}|#2|\tikzmark{defAafter}|}\textcolor{purple}{|\tikzmark{defBbefore}|#1|\tikzmark{defBafter}|}}|\tikzmark{eol}|
+\newcommand{\idx}[2]{\index{|\tikzmark{idxdefAbefore}|#2|\tikzmark{idxdefAafter}|}\textcolor{purple}{|\tikzmark{idxdefBbefore}|#1|\tikzmark{idxdefBafter}|}}|\tikzmark{idxeol}|
   \end{minted}
   
   \vspace{5mm}
   \textbf{Use:}
   \begin{minted}[breaklines,escapeinside=||]{latex}
-We need to fit this to the \idx{|\tikzmark{useAbefore}|tradeoff|\tikzmark{useAafter}|}{|\tikzmark{useBbefore}|Tradeoff|\tikzmark{useBafter}|}.
+We need to fit this to the \idx{|\tikzmark{idxuseAbefore}|tradeoff|\tikzmark{idxuseAafter}|}{|\tikzmark{idxuseBbefore}|Tradeoff|\tikzmark{idxuseBafter}|}.
   \end{minted}
   \pause
   \begin{tikzpicture}[remember picture]
     \tikzstyle{arrow} = [thick,->,>=stealth, draw=black]
     \tikzstyle{box} = [overlay,rectangle,thick,draw=black]
     
-    \coordinate (defA_coord) at ([yshift=-1.5mm] $(pic cs:defAbefore)!0.5!(pic cs:defAafter)$);
-    \coordinate (defB_coord) at ([yshift= 3mm]   $(pic cs:defBbefore)!0.5!(pic cs:defBafter)$);
-    \coordinate (useA_coord) at ([yshift=-1.5mm] $(pic cs:useAbefore)!0.5!(pic cs:useAafter)$);
-    \coordinate (useB_coord) at ([yshift= 3mm]   $(pic cs:useBbefore)!0.5!(pic cs:useBafter)$);
-    \coordinate (eol_coord)  at ([xshift= 3mm]   pic cs:eol);
+    \coordinate (defA_coord) at ([yshift=-1.5mm] $(pic cs:idxdefAbefore)!0.5!(pic cs:idxdefAafter)$);
+    \coordinate (defB_coord) at ([yshift= 3mm]   $(pic cs:idxdefBbefore)!0.5!(pic cs:idxdefBafter)$);
+    \coordinate (useA_coord) at ([yshift=-1.5mm] $(pic cs:idxuseAbefore)!0.5!(pic cs:idxuseAafter)$);
+    \coordinate (useB_coord) at ([yshift= 3mm]   $(pic cs:idxuseBbefore)!0.5!(pic cs:idxuseBafter)$);
+    \coordinate (eol_coord)  at ([xshift= 3mm]   pic cs:idxeol);
     
     \draw[overlay, arrow, thick] (defA_coord) |- ($(defA_coord)!0.5!(useB_coord)$) -| (useB_coord);
     \draw[overlay, arrow, thick] (defB_coord) -- ([yshift=3mm]defB_coord) -| (eol_coord) |- ([yshift=-3mm]useA_coord) -- (useA_coord);
@@ -98,21 +98,21 @@ We need to fit this to the \idx{|\tikzmark{useAbefore}|tradeoff|\tikzmark{useAaf
   \vspace{5mm}
   \textbf{Definition:}
   \begin{minted}[breaklines,escapeinside=||]{latex}
-\newcommand{\filename}[1]{ \textcolor{purple}{\texttt{|\tikzmark{defbefore}|#1|\tikzmark{defafter}|}} }
+\newcommand{\filename}[1]{ \textcolor{purple}{\texttt{|\tikzmark{filenamedefbefore}|#1|\tikzmark{filenamedefafter}|}} }
   \end{minted}
   
   \vspace{5mm}
   \textbf{Use:}
   \begin{minted}[breaklines,escapeinside=||]{latex}
-The configuration is pulled from the \filename{|\tikzmark{usebefore}|conf.yaml|\tikzmark{useafter}|} file.
+The configuration is pulled from the \filename{|\tikzmark{filenameusebefore}|conf.yaml|\tikzmark{filenameuseafter}|} file.
   \end{minted}
   \pause
   \begin{tikzpicture}[remember picture]
     \tikzstyle{arrow} = [thick,->,>=stealth, draw=black]
     \tikzstyle{box} = [overlay,rectangle,thick,draw=black]
     
-    \coordinate (def_coord) at ([yshift=-1.5mm] $(pic cs:defbefore)!0.5!(pic cs:defafter)$);
-    \coordinate (use_coord) at ([yshift= 3mm]   $(pic cs:usebefore)!0.5!(pic cs:useafter)$);
+    \coordinate (def_coord) at ([yshift=-1.5mm] $(pic cs:filenamedefbefore)!0.5!(pic cs:filenamedefafter)$);
+    \coordinate (use_coord) at ([yshift= 3mm]   $(pic cs:filenameusebefore)!0.5!(pic cs:filenameuseafter)$);
     
     \draw[overlay, arrow, thick] (def_coord) |- ($(def_coord)!0.5!(use_coord)$) -| (use_coord);
   \end{tikzpicture}
