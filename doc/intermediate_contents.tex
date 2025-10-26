@@ -81,7 +81,7 @@ We need to fit this to the \idx{|\tikzmark{idxuseAbefore}|tradeoff|\tikzmark{idx
   \end{tikzpicture}
   
   \pause
-  \vspace{5mm}
+  \vspace{3mm}
   \textbf{Appearance:} \\
   We need to fit this to the \idx{tradeoff}{Tradeoff}.
   \\\\
@@ -118,7 +118,7 @@ The configuration is pulled from the \filename{|\tikzmark{filenameusebefore}|con
   \end{tikzpicture}
   
   \pause
-  \vspace{5mm}
+  \vspace{3mm}
   \textbf{Appearance:}
   \\
   The configuration is pulled from the \textcolor{purple}{\texttt{conf.yaml}} file.
@@ -149,7 +149,7 @@ The configuration is pulled from the \filename{|\tikzmark{filenameusebefore}|con
     \draw[overlay, arrow, thick] (use_coord) -- ([yshift=-3mm]use_coord) -| (eol_coord) |- ([yshift=3mm]def_coord) -- (def_coord);
   \end{tikzpicture}
   
-  \vspace{2mm}
+  \vspace{-1mm}
   \textbf{Use:}
   \begin{minted}[breaklines]{latex}
 \begin{itemize}
@@ -369,8 +369,8 @@ The configuration is pulled from the \filename{|\tikzmark{filenameusebefore}|con
   \vspace{5mm}
   Properties:
   \begin{itemize}
-    \item This material is placed at the \textsl{anchor point} of the node.
-    \item A shape can be drawn around it: circle, rectangle, diamond \ldots
+    \item A shape can be drawn around the node: circle, rectangle, diamond \ldots
+    \item This material is placed at the \textsl{anchor point} of the nodes shape.
 %    \item The shape itself is drawn according to a \textsl{style}.
     \item The inside of that shape can be filled with a color or a pattern.
     \item All of this is \textsl{drawn} according to a \textsl{style}.
@@ -446,6 +446,8 @@ The configuration is pulled from the \filename{|\tikzmark{filenameusebefore}|con
       \node[point] (cse) at (circle.south east) {};
       \node[anchor=north west] () at (sse.south east) {\pointname{south east}};
       \node[anchor=north west] () at (cse.south east) {\pointname{south east}};
+      
+      \node[] (anchor=south) at (current page.south) {\te3xtsl{the anchor points (except for \texttt{center}) are at the outer edge of the shape}};
     }
   \end{tikzpicture}
 \end{frame}
