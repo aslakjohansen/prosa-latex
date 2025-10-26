@@ -447,7 +447,7 @@ The configuration is pulled from the \filename{|\tikzmark{filenameusebefore}|con
       \node[anchor=north west] () at (sse.south east) {\pointname{south east}};
       \node[anchor=north west] () at (cse.south east) {\pointname{south east}};
       
-      \node[] (anchor=south) at (current page.south) {\te3xtsl{the anchor points (except for \texttt{center}) are at the outer edge of the shape}};
+      \node[anchor=south] () at (current page.south) {\te3xtsl{the anchor points (except for \texttt{center}) are at the outer edge of the shape}};
     }
   \end{tikzpicture}
 \end{frame}
@@ -863,16 +863,21 @@ The configuration is pulled from the \filename{|\tikzmark{filenameusebefore}|con
   \frametitle{Styles \subpart{Select Rules}}
   \vspace{3mm}
   \begin{itemize}
+    \pause
     \item Name of a previously defined style. Following rules will override.
-    \item Line thickness: \hldata{\texttt{thin}}, \hldata{\texttt{thick}}, \hldata{\texttt{very thick}}
+    \pause
     \item Anchor point: \hldata{\texttt{anchor=north west}}
+    \pause
+    \item Line thickness: \hldata{\texttt{thin}}, \hldata{\texttt{thick}}, \hldata{\texttt{very thick}}
     \item Stroke color: \hldata{\texttt{draw=purple}}
     \item Fill color: \hldata{\texttt{fill=purple}}
     \item Text color: \hldata{\texttt{text=purple}}
+    \pause
     \item Text alignment: \hldata{\texttt{align=left}} \\
           (needed for multiple lines)
     \item Node minimum width: \hldata{\texttt{minimum width=2.4cm}}
     \item Node minimum height: \hldata{\texttt{minimum height=12mm}}
+    \pause
     \item Padding between node text and shape: \hldata{\texttt{inner sep=0pt}}
   \end{itemize}
 \end{frame}
