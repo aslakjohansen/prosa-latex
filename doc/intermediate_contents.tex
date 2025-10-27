@@ -1318,7 +1318,7 @@ The configuration is pulled from the \filename{|\tikzmark{filenameusebefore}|con
   I am writing a book. Each chapter ends with a number of exercises.
   
   \vspace{5mm}
-  You want to score each exercise of two different parameters so that the reader can get a good impression of what they are getting themselves into.
+  You want to score each exercise on two different parameters so that the reader can have a good impression of what they are getting themselves into.
   
   \pause
   \vspace{5mm}
@@ -1336,7 +1336,8 @@ The configuration is pulled from the \filename{|\tikzmark{filenameusebefore}|con
   \vspace{3mm}
   First, introduce directory structure:
   \begin{itemize}
-    \item Chapter name at the top level with some sort of machine readable index file (e.g., YAML)
+    \item Chapter name at the top level.
+    \item Some sort of machine readable index file in these directories (e.g., YAML).
     \item Exercise name at the next level.
     \item At the last level we have a \filename{question.tex}, a \filename{answer.tex} and a \filename{meta.yaml} (with the difficulties).
   \end{itemize}
@@ -1434,7 +1435,7 @@ The configuration is pulled from the \filename{|\tikzmark{filenameusebefore}|con
 \begin{frame}[fragile]
   \frametitle{Parameterized Documents \subpart{Solution}}
   \vspace{3mm}
-  The \LaTeX\ engine command is usually give a filename as parameter:
+  The \LaTeX\ engine command is usually given a filename as parameter:
   
   \vspace{1mm}
   \begin{minted}[breaklines]{shell}
