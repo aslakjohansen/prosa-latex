@@ -370,10 +370,10 @@ The configuration is pulled from the \filename{|\tikzmark{filenameusebefore}|con
   Properties:
   \begin{itemize}
     \item A shape can be drawn around the node: circle, rectangle, diamond \ldots
-    \item This material is placed at the \textsl{anchor point} of the nodes shape.
+    \item This material is placed at the \textcolor{purple}{\textsl{anchor point}} of the nodes shape.
 %    \item The shape itself is drawn according to a \textsl{style}.
     \item The inside of that shape can be filled with a color or a pattern.
-    \item All of this is \textsl{drawn} according to a \textsl{style}.
+    \item All of this is \textsl{drawn} according to a \textcolor{purple}{\textsl{style}}.
   \end{itemize}
 \end{frame}
 
@@ -447,6 +447,7 @@ The configuration is pulled from the \filename{|\tikzmark{filenameusebefore}|con
       \node[anchor=north west] () at (sse.south east) {\pointname{south east}};
       \node[anchor=north west] () at (cse.south east) {\pointname{south east}};
       
+      \pause
       \node[anchor=south] () at (current page.south) {\textsl{the anchor points (except for \texttt{center}) are at the outer edge of the shape}};
     }
   \end{tikzpicture}
@@ -1373,7 +1374,7 @@ The configuration is pulled from the \filename{|\tikzmark{filenameusebefore}|con
   
   \pause
   \vspace{5mm}
-  The information that needs to find their way to each individual nametag is spread out across 60+ columns, and the mapping is far from clean.
+  The information that needs to find their way to each individual nametag is spread out across 60+ columns in a spreadsheet, and the mapping is far from clean.
   
   \pause
   \vspace{5mm}
@@ -1388,7 +1389,7 @@ The configuration is pulled from the \filename{|\tikzmark{filenameusebefore}|con
 \begin{frame}[fragile]
   \frametitle{Nametag Generation \subpart{Solution}}
   \vspace{3mm}
-  Write a script that loads the spreadsheet, crunches the data and writes a \filename{.tex} file that makes use of a set of definitions.
+  Write a script that loads the spreadsheet, crunches the data and writes a \filename{.tex} file that makes use of a set of definitions from another \filename{.tex} file.
   
   \vspace{5mm}
   Source: \textcolor{blue}{\url{https://github.com/aslakjohansen/icsa25-nametag}}
@@ -1805,7 +1806,7 @@ lualatex -shell-escape "\newcommand\odenseonly[1]{\#1} \newcommand\sonderborgonl
   
   \pause
   \vspace{5mm}
-  And then have a \textcolor{blue}{\href{https://github.com/aslakjohansen/prosa-latex/blob/main/bin/generate-tex-includes}{script}} crawl through the file inclusion tree of the document to find all references to this macro, and automatically convert each of them from SVG to PDF.
+  And then have a \textcolor{blue}{\href{https://github.com/aslakjohansen/prosa-latex/blob/main/bin/generate-tex-includes}{script}} crawl through the file inclusion tree of the root \LaTeX\ document to find all references to this macro, and automatically convert each of them from SVG to PDF.
 \end{frame}
 
 \subsubsection{Result}
@@ -1906,13 +1907,13 @@ lualatex -shell-escape "\newcommand\odenseonly[1]{\#1} \newcommand\sonderborgonl
 \begin{frame}[fragile]
   \frametitle{Next Level}
   \vspace{3mm}
-  Proper TeX programming.
+  Proper TeX programming: State, loops, state \ldots
   
   \vspace{5mm}
   Constructive methodology for writing \LaTeX\ and dealing with errors.
   
   \vspace{5mm}
-  Defining custom \TikZ\ node and edge types.
+  Defining custom \TikZ\ node types, edge types and anchor points.
   
   \vspace{5mm}
   Writing style.
@@ -1942,7 +1943,7 @@ lualatex -shell-escape "\newcommand\odenseonly[1]{\#1} \newcommand\sonderborgonl
   \frametitle{Exercises}
   \vspace{1mm}
   \begin{enumerate}
-    \descitem{Color Cube:} Use \TikZ\ to draw an RGB color cube that is centered on the page. It should have nodes for red, green, blue, black, cyan, magenta and white, and the appropriate edges.
+    \descitem{Color Cube:} Use \TikZ\ to draw an RGB color cube that is centered on the page. It should have nodes for red, green, blue, black, cyan, magenta, yellow and white, and the appropriate edges.
     \descitem{First Macro:} Lets imagine that you are working on a project where you deal with objects that have a color property. For some reason it is important for you, in a report, to be able to quickly state whether one object is more or less red, green and blue than another. Write a number of macros, that make it easy to write something like this:
       \begin{center}
         $O_1 \overset{\textcolor{red}{\bullet}}{=} O_2$
